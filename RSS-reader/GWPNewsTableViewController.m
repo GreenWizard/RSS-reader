@@ -51,6 +51,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
+}
+
 
 - (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
     
@@ -71,8 +76,7 @@
     GWPNewsTableViewCell *cell = (GWPNewsTableViewCell *)sender;
     if(cell.Id != nil){
         UIViewController *viewController = segue.destinationViewController;
-        UIViewController *viewController2 = ((UINavigationController *)viewController).topViewController;
-        GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController2;
+        GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController;
         destination.newsId = cell.Id;
     }
 }

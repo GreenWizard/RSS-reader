@@ -12,7 +12,7 @@
         <scene sceneID="YV9-Ax-Nth">
             <objects>
                 <tableViewController id="b32-hx-91J" customClass="GWPNewsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="6lV-TS-tZf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="6lV-TS-tZf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,10 +28,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="kOR-ez-6ZG" kind="show" identifier="NewsBodySegue" id="amk-RR-Icc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Vn-04H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-161"/>
+            <point key="canvasLocation" x="-372" y="-240"/>
         </scene>
         <!--News Title-->
         <scene sceneID="ZOj-gy-WXS">
@@ -71,7 +74,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fc7-Vi-9I3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JRA-GY-F3D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="-161.46926536731635"/>
+            <point key="canvasLocation" x="636" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cs7-L2-Gqm">
@@ -90,24 +93,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eK-3P-dih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-372" y="-942"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZQD-Fk-Qax">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l70-hT-mv3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XqF-Ig-cT5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kOR-ez-6ZG" kind="relationship" relationship="rootViewController" id="d2X-6p-YOp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppG-mp-7pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="606" y="-942"/>
         </scene>
     </scenes>
 </document>
