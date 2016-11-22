@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GWPNewsTableViewCell"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="70" id="ge2-fg-s1E" customClass="GWPNewsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ge2-fg-s1E" id="6ou-v5-VUc">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sy-0S-EtX">
+                        <rect key="frame" x="8" y="6" width="273" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="IQa-eT-K6b"/>
+                            <constraint firstAttribute="width" constant="273" id="hJ0-fe-dYo"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="News Title">
+                                <attributes>
+                                    <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-QI-cDk">
+                        <rect key="frame" x="8" y="29" width="359" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="WOi-9H-hL6"/>
+                            <constraint firstAttribute="width" constant="359" id="aX7-ZQ-cEd"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="News ">
+                                <attributes>
+                                    <font key="NSFont" size="11" name="Arial-ItalicMT"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-gm-AoJ">
+                        <rect key="frame" x="289" y="6" width="78" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="78" id="BfF-1S-hvK"/>
+                            <constraint firstAttribute="height" constant="21" id="rX2-cN-qRf"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Date">
+                                <attributes>
+                                    <font key="NSFont" size="11" name="ArialMT"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="leading" secondItem="8Sy-0S-EtX" secondAttribute="trailing" constant="8" id="9j7-Ok-oKx"/>
+                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="Eyj-3J-29Q"/>
+                    <constraint firstItem="VOw-QI-cDk" firstAttribute="top" secondItem="QGE-gm-AoJ" secondAttribute="bottom" constant="2" id="Klx-lN-iXY"/>
+                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="NAd-B4-Sci"/>
+                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leading" constant="8" id="mfK-wG-cME"/>
+                    <constraint firstItem="VOw-QI-cDk" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leadingMargin" id="uzI-mV-oWL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="newsDetails" destination="VOw-QI-cDk" id="g3r-al-O3T"/>
+                <outlet property="newsTitle" destination="8Sy-0S-EtX" id="FOl-7w-jHt"/>
+                <outlet property="publicationDate" destination="QGE-gm-AoJ" id="Nl5-AS-pcr"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

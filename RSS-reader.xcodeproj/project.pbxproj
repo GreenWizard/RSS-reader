@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F814D831DE482FC0056F9FF /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F814D821DE482FC0056F9FF /* NewsCell.xib */; };
 		CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */; };
 		CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */; };
 		CEA15A611DDC3F56000533AF /* GWPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F814D821DE482FC0056F9FF /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverProtocol.h; sourceTree = "<group>"; };
 		CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPDeterminateNewsReciever.h; sourceTree = "<group>"; };
 		CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPDeterminateNewsReciever.m; sourceTree = "<group>"; };
@@ -52,6 +54,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F814D7C1DE471CA0056F9FF /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				3F814D821DE482FC0056F9FF /* NewsCell.xib */,
+				CEEF06B91DDA0D680069F9B6 /* LaunchScreen.storyboard */,
+				CEEF06B41DDA0D680069F9B6 /* Main.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		3F814D7D1DE471EB0056F9FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA15A5F1DDC3F56000533AF /* GWPNewsTableViewController.h */,
+				CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */,
+				CE5C7F191DDDE15100E0943A /* GWPNewsBodyViewController.h */,
+				CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F814D7E1DE472170056F9FF /* Custom Ui elements */ = {
+			isa = PBXGroup;
+			children = (
+				CEA15A621DDC489F000533AF /* GWPNewsTableViewCell.h */,
+				CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */,
+			);
+			name = "Custom Ui elements";
+			sourceTree = "<group>";
+		};
+		3F814D7F1DE4726E0056F9FF /* NewsRecievers */ = {
+			isa = PBXGroup;
+			children = (
+				CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */,
+				CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */,
+				CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */,
+			);
+			name = NewsRecievers;
+			sourceTree = "<group>";
+		};
 		CEEF069F1DDA0D680069F9B6 = {
 			isa = PBXGroup;
 			children = (
@@ -73,20 +115,13 @@
 			children = (
 				CEEF06AE1DDA0D680069F9B6 /* AppDelegate.h */,
 				CEEF06AF1DDA0D680069F9B6 /* AppDelegate.m */,
-				CEEF06B41DDA0D680069F9B6 /* Main.storyboard */,
-				CEA15A5F1DDC3F56000533AF /* GWPNewsTableViewController.h */,
-				CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */,
-				CE5C7F191DDDE15100E0943A /* GWPNewsBodyViewController.h */,
-				CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */,
-				CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */,
-				CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */,
-				CEA15A621DDC489F000533AF /* GWPNewsTableViewCell.h */,
-				CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */,
-				CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */,
+				3F814D7E1DE472170056F9FF /* Custom Ui elements */,
+				3F814D7D1DE471EB0056F9FF /* Controllers */,
+				3F814D7C1DE471CA0056F9FF /* Interface */,
+				3F814D7F1DE4726E0056F9FF /* NewsRecievers */,
 				CEA15A651DDC4E53000533AF /* GWPShortNews.h */,
 				CEA15A661DDC4E53000533AF /* GWPShortNews.m */,
 				CEEF06B71DDA0D680069F9B6 /* Assets.xcassets */,
-				CEEF06B91DDA0D680069F9B6 /* LaunchScreen.storyboard */,
 				CEEF06BC1DDA0D680069F9B6 /* Info.plist */,
 				CEEF06AB1DDA0D680069F9B6 /* Supporting Files */,
 			);
@@ -162,6 +197,7 @@
 			files = (
 				CEEF06BB1DDA0D680069F9B6 /* LaunchScreen.storyboard in Resources */,
 				CEEF06B81DDA0D680069F9B6 /* Assets.xcassets in Resources */,
+				3F814D831DE482FC0056F9FF /* NewsCell.xib in Resources */,
 				CEEF06B61DDA0D680069F9B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

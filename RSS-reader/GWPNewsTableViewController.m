@@ -12,11 +12,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
     self.newsReciever = [GWPDeterminateNewsReciever getReciever];
     self.newsReciever.numberOfNews = @20;
     [self.newsReciever update];
     self.newsStorage = self.newsReciever.newsList;
+    
     
 }
 
@@ -37,7 +40,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
+    GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
     GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
     cell.Id = news.Id;
@@ -59,7 +62,6 @@
     self.newsStorage = self.newsReciever.newsList;
     [self.tableView reloadData];
 }
-
 
 
 #pragma mark - Navigation
