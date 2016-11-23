@@ -65,10 +65,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="leading" secondItem="8Sy-0S-EtX" secondAttribute="trailing" constant="8" id="9j7-Ok-oKx"/>
                     <constraint firstItem="8Sy-0S-EtX" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="Eyj-3J-29Q"/>
                     <constraint firstItem="VOw-QI-cDk" firstAttribute="top" secondItem="QGE-gm-AoJ" secondAttribute="bottom" constant="2" id="Klx-lN-iXY"/>
                     <constraint firstItem="QGE-gm-AoJ" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="NAd-B4-Sci"/>
+                    <constraint firstAttribute="trailing" secondItem="QGE-gm-AoJ" secondAttribute="trailing" constant="8" id="Uhl-LW-SFt"/>
                     <constraint firstItem="8Sy-0S-EtX" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leading" constant="8" id="mfK-wG-cME"/>
                     <constraint firstItem="VOw-QI-cDk" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leadingMargin" id="uzI-mV-oWL"/>
                 </constraints>
