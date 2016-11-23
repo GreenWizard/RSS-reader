@@ -5,8 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,80 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="70" id="3xt-Ad-bFh" customClass="GWPNewsTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3xt-Ad-bFh" id="bVF-Ip-ag4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKC-7c-XhB">
-                                            <rect key="frame" x="8" y="6" width="273" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="273" id="K4I-kF-Iqw"/>
-                                                <constraint firstAttribute="height" constant="21" id="VTx-2H-lvz"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="News Title">
-                                                    <attributes>
-                                                        <font key="NSFont" size="13" name="Arial-BoldMT"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="487-un-OG8">
-                                            <rect key="frame" x="8" y="29" width="359" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="359" id="lEl-he-mng"/>
-                                                <constraint firstAttribute="height" constant="40" id="yOy-kk-AIf"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="News ">
-                                                    <attributes>
-                                                        <font key="NSFont" size="11" name="Arial-ItalicMT"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c52-EE-0pX">
-                                            <rect key="frame" x="289" y="6" width="78" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="78" id="YHz-kT-Gyn"/>
-                                                <constraint firstAttribute="height" constant="21" id="zbS-K7-iil"/>
-                                            </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Date">
-                                                    <attributes>
-                                                        <font key="NSFont" size="11" name="ArialMT"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="487-un-OG8" firstAttribute="top" secondItem="c52-EE-0pX" secondAttribute="bottom" constant="2" id="Eb8-pM-j0D"/>
-                                        <constraint firstItem="487-un-OG8" firstAttribute="leading" secondItem="bVF-Ip-ag4" secondAttribute="leadingMargin" id="IWr-5f-efd"/>
-                                        <constraint firstItem="gKC-7c-XhB" firstAttribute="leading" secondItem="bVF-Ip-ag4" secondAttribute="leading" constant="8" id="TSO-sB-27R"/>
-                                        <constraint firstItem="c52-EE-0pX" firstAttribute="top" secondItem="bVF-Ip-ag4" secondAttribute="top" constant="6" id="WKN-gF-4zN"/>
-                                        <constraint firstItem="gKC-7c-XhB" firstAttribute="top" secondItem="bVF-Ip-ag4" secondAttribute="top" constant="6" id="hlM-fo-jJQ"/>
-                                        <constraint firstItem="c52-EE-0pX" firstAttribute="leading" secondItem="gKC-7c-XhB" secondAttribute="trailing" constant="8" id="tZ9-Kh-ugn"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="newsDetails" destination="487-un-OG8" id="j9c-fE-b24"/>
-                                    <outlet property="newsTitle" destination="gKC-7c-XhB" id="UMv-RJ-5Ts"/>
-                                    <outlet property="publicationDate" destination="c52-EE-0pX" id="UOb-Bj-7cq"/>
-                                    <segue destination="l70-hT-mv3" kind="presentation" modalTransitionStyle="crossDissolve" id="heX-Lb-Eaa">
-                                        <segue key="commit" inheritsFrom="parent" id="cmk-id-mfR"/>
-                                        <segue key="preview" inheritsFrom="commit" id="fAS-3J-MiX"/>
-                                    </segue>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="b32-hx-91J" id="64G-sK-HYK"/>
                             <outlet property="delegate" destination="b32-hx-91J" id="A3N-RQ-78k"/>
@@ -104,10 +28,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="kOR-ez-6ZG" kind="show" identifier="NewsBodySegue" id="amk-RR-Icc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Vn-04H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-161"/>
+            <point key="canvasLocation" x="-372" y="-240"/>
         </scene>
         <!--News Title-->
         <scene sceneID="ZOj-gy-WXS">
@@ -135,7 +62,7 @@
                     <navigationItem key="navigationItem" title="News Title" id="o4r-UG-kej">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="NNn-va-nuJ">
                             <connections>
-                                <segue destination="JRA-GY-F3D" kind="unwind" unwindAction="unwindForSegue:" id="Nto-sD-I9U"/>
+                                <segue destination="JRA-GY-F3D" kind="unwind" unwindAction="unwindForSegue:" id="xFz-F0-qPo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -147,7 +74,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fc7-Vi-9I3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JRA-GY-F3D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="-161.46926536731635"/>
+            <point key="canvasLocation" x="636" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cs7-L2-Gqm">
@@ -167,26 +94,5 @@
             </objects>
             <point key="canvasLocation" x="-372" y="-942"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZQD-Fk-Qax">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l70-hT-mv3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XqF-Ig-cT5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kOR-ez-6ZG" kind="relationship" relationship="rootViewController" id="d2X-6p-YOp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppG-mp-7pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="606" y="-942"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="heX-Lb-Eaa"/>
-    </inferredMetricsTieBreakers>
 </document>

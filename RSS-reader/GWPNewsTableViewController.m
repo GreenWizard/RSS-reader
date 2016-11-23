@@ -12,11 +12,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
-    self.newsReciever = [GWPDeterminateNewsReciever getReciever];
+    self.newsReciever = [GWPRSSNewsReciever getReciever];
     self.newsReciever.numberOfNews = @20;
     [self.newsReciever update];
     self.newsStorage = self.newsReciever.newsList;
+  
     
 }
 
@@ -37,7 +40,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
+    GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
     GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
     cell.Id = news.Id;
@@ -46,6 +49,11 @@
     cell.newsDetails.text = news.details;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
 }
 
 
@@ -61,7 +69,6 @@
 }
 
 
-
 #pragma mark - Navigation
 
 
@@ -69,8 +76,7 @@
     GWPNewsTableViewCell *cell = (GWPNewsTableViewCell *)sender;
     if(cell.Id != nil){
         UIViewController *viewController = segue.destinationViewController;
-        UIViewController *viewController2 = ((UINavigationController *)viewController).topViewController;
-        GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController2;
+        GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController;
         destination.newsId = cell.Id;
     }
 }

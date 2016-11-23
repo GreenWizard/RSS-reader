@@ -14,7 +14,9 @@
 
 @property (readonly, nonatomic, strong, getter=newsList) NSMutableArray *newsList;
 @property (readwrite, atomic, strong) NSNumber * numberOfNews;
+
 +(id)getReciever;
++(void)killReciever;
 
 -(void)update;
 -(GWPShortNews *)newsById:(NSNumber *)newsId;

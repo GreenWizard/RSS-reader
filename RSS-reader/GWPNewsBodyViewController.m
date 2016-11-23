@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    id<GWPNewsRecieverProtocol> reciever = [GWPDeterminateNewsReciever getReciever];
+    id<GWPNewsRecieverProtocol> reciever = [GWPRSSNewsReciever getReciever];
     self.news = [reciever newsById:self.newsId];
     self.newsTitle.title = self.news.title;
     //NSLog (@"%@",self.newsDetails.text);

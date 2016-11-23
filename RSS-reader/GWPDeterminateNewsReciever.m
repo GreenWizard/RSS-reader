@@ -13,6 +13,8 @@
 @end
 
 @implementation GWPDeterminateNewsReciever
+@synthesize newsList;
+@synthesize numberOfNews;
 
 +(id)getReciever{
     return [[GWPDeterminateNewsReciever alloc]init];
@@ -22,7 +24,7 @@
     return;
 }
 
--(NSMutableArray *)newsList{
+-(NSMutableArray *)getNewsList{
         NSMutableArray *result = [[NSMutableArray alloc]init];
     
         for(int i = 0; i<self.numberOfNews.intValue; ++i )
@@ -46,5 +48,7 @@
                             newsId.intValue%12+1,2000+newsId.intValue];
     return news;
 }
+
++(void)killReciever{}
 
 @end

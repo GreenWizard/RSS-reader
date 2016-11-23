@@ -14,5 +14,6 @@
 @property (atomic, strong) NSString *title;
 @property (atomic, strong) NSString *publicationDate;
 @property (atomic, strong) NSString *details;
+@property (atomic, strong) NSURL *link;
 
 @end

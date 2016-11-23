@@ -12,7 +12,4 @@
 
 @interface GWPDeterminateNewsReciever : NSObject <GWPNewsRecieverProtocol>
 
-@property (readwrite, atomic, strong) NSNumber *numberOfNews;
-@property (readonly, nonatomic, strong, getter=newsList) NSMutableArray *newsList;
-
 @end
