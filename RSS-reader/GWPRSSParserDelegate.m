@@ -6,17 +6,31 @@
 //  Copyright © 2016 User. All rights reserved.
 //
 
-#import "GWPRSSParserDelgate.h"
+#import "GWPRSSParserDelegate.h"
 
-@implementation GWPRSSParserDelgate
+@implementation GWPRSSParserDelegate
 
 @synthesize marrXMLData;
 @synthesize mstrXMLString;
 @synthesize mdictXMLPart;
 
-- (void)startParsing
+- (void)parse
 {
-    NSURL *url = [NSURL URLWithString:@"https://news.yandex.ru/hardware.rss"];
+    static BOOL flag;
+    
+    NSURL *url;
+    
+    if(flag)
+    {
+        url = [NSURL URLWithString:@"https://news.yandex.ru/hardware.rss"];
+        flag = NO;
+    }
+    else
+    {
+        url = [NSURL URLWithString:@"https://www.vesti.ru/vesti.rss"];
+        flag = YES;
+    }
+    
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     [xmlParser setDelegate:self];
     [xmlParser parse];

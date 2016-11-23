@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GWPRSSParserDelgate : NSObject <NSXMLParserDelegate>
+@interface GWPRSSParserDelegate : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *dictData;
 @property (nonatomic,strong) NSMutableArray *marrXMLData;
 @property (nonatomic,strong) NSMutableString *mstrXMLString;
 @property (nonatomic,strong) NSMutableDictionary *mdictXMLPart;
 
--(void)startParsing;
+-(void)parse;
 @end

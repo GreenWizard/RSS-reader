@@ -15,6 +15,7 @@
 @implementation GWPDeterminateNewsReciever
 @synthesize newsList;
 @synthesize numberOfNews;
+@synthesize delegate;
 
 +(id)getReciever{
     return [[GWPDeterminateNewsReciever alloc]init];

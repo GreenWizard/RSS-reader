@@ -17,6 +17,7 @@
 @implementation GWPRSSNewsReciever
 @synthesize newsList;
 @synthesize numberOfNews;
+@synthesize delegate;
 
 +(id)selfHolder:(BOOL)destroy create:(BOOL)create{
     static id selfReciever;
@@ -71,10 +72,23 @@
 }
 
 -(void)update{
-    GWPRSSParserDelgate * parserDelegate = [[GWPRSSParserDelgate alloc] init];
-    self.newsList = [[NSMutableArray alloc]init];
-    [parserDelegate startParsing];
+    [self.delegate updateStarded];
+    [self recieveNewsList];
+    [self.delegate updateCompletedWithResult];
+}
+
+-(void)recieveNewsList{
+    GWPRSSParserDelegate * parserDelegate = [[GWPRSSParserDelegate alloc] init];
+    NSMutableArray *recievedNewsList = [[NSMutableArray alloc]init];
+    [parserDelegate parse];
     NSArray *parsingResult = parserDelegate.marrXMLData;
+    
+    if(![parsingResult count])
+    {
+        [self.delegate updateCompletedWithError:@"InternetConnectionError"];
+        return;
+    }
+    
     int ID = 0;
     for(NSDictionary* newsRecord in parsingResult)
     {
@@ -84,9 +98,10 @@
         news.details = [newsRecord objectForKey:@"description"];
         news.publicationDate = [newsRecord objectForKey:@"pubDate"];
         news.link = [NSURL URLWithString:[newsRecord objectForKey:@"link"]];
-        [newsList addObject:news];
+        [recievedNewsList addObject:news];
         ++ID;
     }
+    [self.delegate inputClosed];
+    newsList = recievedNewsList;
 }
-
 @end

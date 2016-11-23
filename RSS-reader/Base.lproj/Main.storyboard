@@ -22,13 +22,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News List" id="p2n-OG-deQ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="fYG-WC-paU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="fYG-WC-paU">
                             <connections>
                                 <action selector="refreshClicked:" destination="b32-hx-91J" id="0eT-Tg-Czc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="fYG-WC-paU" id="nFp-FD-1Y0"/>
                         <segue destination="kOR-ez-6ZG" kind="show" identifier="NewsBodySegue" id="amk-RR-Icc"/>
                     </connections>
                 </tableViewController>

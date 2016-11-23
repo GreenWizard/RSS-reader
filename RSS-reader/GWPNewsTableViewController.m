@@ -3,8 +3,10 @@
 
 @interface GWPNewsTableViewController ()
 
-@property NSMutableArray *newsStorage;
-@property id <GWPNewsRecieverProtocol> newsReciever;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (strong, readwrite) NSMutableArray *newsStorage;
+@property (strong, readwrite) id <GWPNewsRecieverProtocol> newsReciever;
+@property (readwrite) BOOL interfaceIsLocked;
 
 @end
 
@@ -12,14 +14,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
     self.newsReciever = [GWPRSSNewsReciever getReciever];
-    self.newsReciever.numberOfNews = @20;
-    [self.newsReciever update];
-    self.newsStorage = self.newsReciever.newsList;
-  
+    [self.newsReciever setDelegate:self];
+    [self refreshClicked:self];
     
 }
 
@@ -52,8 +53,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    id cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
+    if(!self.interfaceIsLocked)
+    {
+        id cell = [tableView cellForRowAtIndexPath:indexPath];
+        [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
+    }
 }
 
 
@@ -62,10 +66,14 @@
 }
 
 - (IBAction)refreshClicked:(id)sender {
-    [self.newsReciever setNumberOfNews:@10];
-    [self.newsReciever update];
-    self.newsStorage = self.newsReciever.newsList;
-    [self.tableView reloadData];
+    if(self.refreshButton.enabled)
+    {
+       self.refreshButton.enabled = NO;
+       NSThread *tread = [[NSThread alloc]initWithTarget:self.newsReciever
+                                                selector:@selector(update)
+                                                  object:nil];
+       [tread start];
+    }
 }
 
 
@@ -81,5 +89,40 @@
     }
 }
 
+#pragma mark - Custom methods
+
+- (void)refreshNewsList{
+    self.newsStorage = self.newsReciever.newsList;
+    [self.tableView reloadData];
+}
+
+#pragma mark - Delegate methods
+
+-(void)updateStarded
+{
+    self.refreshButton.enabled = NO;
+}
+
+-(void) updateCompletedWithResult
+{
+    self.interfaceIsLocked = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self refreshNewsList];
+    });
+    self.refreshButton.enabled = YES;
+
+}
+
+-(void) updateCompletedWithError:(NSString *)error
+{
+    self.refreshButton.enabled = YES;
+    self.interfaceIsLocked = NO;
+    NSLog(@"%@", error);
+}
+
+-(void) inputClosed
+{
+    self.interfaceIsLocked = YES;
+}
 
 @end
