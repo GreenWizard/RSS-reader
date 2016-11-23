@@ -30,16 +30,12 @@
     if ([elementName isEqualToString:@"item"]) {
         mdictXMLPart = [[NSMutableDictionary alloc] init];
     }
+    mstrXMLString = [[NSMutableString alloc]initWithCapacity:0];
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if (!mstrXMLString) {
-        mstrXMLString = [[NSMutableString alloc] initWithString:string];
-    }
-    else {
-        [mstrXMLString appendString:string];
-    }
+    [mstrXMLString appendString:string];
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -49,7 +45,6 @@
         || [elementName isEqualToString:@"description"]
         || [elementName isEqualToString:@"link"])
     {
-        [self removeWaste:mstrXMLString];
         [mdictXMLPart setObject:mstrXMLString forKey:elementName];
     }
     if ([elementName isEqualToString:@"item"])
@@ -59,15 +54,4 @@
     mstrXMLString = nil;
 }
 
-- (void)removeWaste:(NSMutableString *)input
-{
-    while([input length])
-    {
-        if(([input characterAtIndex:0]=='\n')
-          ||([input characterAtIndex:0]=='\t')
-          ||([input characterAtIndex:0]==' '))
-            [input deleteCharactersInRange:NSMakeRange(0, 1)];
-        else return;
-    }
-}
 @end
