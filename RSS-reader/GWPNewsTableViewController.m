@@ -15,11 +15,11 @@
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
-    self.newsReciever = [GWPDeterminateNewsReciever getReciever];
+    self.newsReciever = [GWPRSSNewsReciever getReciever];
     self.newsReciever.numberOfNews = @20;
     [self.newsReciever update];
     self.newsStorage = self.newsReciever.newsList;
-    
+  
     
 }
 

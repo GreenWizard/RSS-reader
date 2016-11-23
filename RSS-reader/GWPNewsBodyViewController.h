@@ -10,6 +10,7 @@
 #import "GWPShortNews.h"
 #import "GWPNewsRecieverProtocol.h"
 #import "GWPDeterminateNewsReciever.h"
+#import "GWPRSSNewsReciever.h"
 
 @interface GWPNewsBodyViewController : UIViewController
 
