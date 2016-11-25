@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *newsTitle;
 @property (weak, nonatomic) IBOutlet UITextView *newsDetails;
-@property GWPShortNews *news;
+@property (atomic, strong) GWPShortNews *news;
 
 @end
 

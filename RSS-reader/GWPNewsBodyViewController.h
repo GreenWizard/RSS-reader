@@ -14,6 +14,6 @@
 
 @interface GWPNewsBodyViewController : UIViewController
 
-@property NSNumber *newsId;
+@property (atomic, strong) NSNumber *newsId;
 
 @end

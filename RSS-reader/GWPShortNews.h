@@ -10,11 +10,11 @@
 
 @interface GWPShortNews : NSObject
 
-@property (atomic, strong, nullable) NSNumber *newsId;
-@property (atomic, strong, nullable) NSString *title;
-@property (atomic, strong, nullable) NSString *publicationDate;
-@property (atomic, strong, nullable) NSString *details;
-@property (atomic, strong, nullable) NSURL *link;
+@property (strong, nullable) NSNumber *newsId;
+@property (strong, nullable) NSString *title;
+@property (strong, nullable) NSString *publicationDate;
+@property (strong, nullable) NSString *details;
+@property (strong, nullable) NSURL *link;
 
 +(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsId
                               title:(nullable NSString *)title

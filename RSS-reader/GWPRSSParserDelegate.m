@@ -7,6 +7,15 @@
 //
 
 #import "GWPRSSParserDelegate.h"
+@interface GWPRSSParserDelegate()<NSXMLParserDelegate>
+
+@property (nonatomic, strong) NSMutableDictionary *dictData;
+@property (nonatomic,strong) NSMutableArray *marrXMLData;
+@property (nonatomic,strong) NSMutableString *mstrXMLString;
+@property (nonatomic,strong) NSMutableDictionary *mdictXMLPart;
+
+
+@end
 
 @implementation GWPRSSParserDelegate
 
@@ -14,7 +23,7 @@
 @synthesize mstrXMLString;
 @synthesize mdictXMLPart;
 
-- (void)parse
+- (NSArray *)parse
 {
     static BOOL flag;
     
@@ -34,6 +43,7 @@
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     [xmlParser setDelegate:self];
     [xmlParser parse];
+    return marrXMLData;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict
@@ -63,7 +73,12 @@
     }
     if ([elementName isEqualToString:@"item"])
     {
-        [marrXMLData addObject:mdictXMLPart];
+        GWPShortNews *news = [GWPShortNews createNews:[NSNumber numberWithInt:0]
+                                                title:[mdictXMLPart objectForKey:@"title"]
+                                      publicationDate:[mdictXMLPart objectForKey:@"pubDate"]
+                                              details:[mdictXMLPart objectForKey:@"description"]
+                                                 link:[NSURL URLWithString:[mdictXMLPart objectForKey:@"link"]]];
+        [marrXMLData addObject:news];
     }
     mstrXMLString = nil;
 }

@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GWPShortNews.h"
 
-@interface GWPRSSParserDelegate : NSObject <NSXMLParserDelegate>
+@interface GWPRSSParserDelegate : NSObject 
 
-@property (nonatomic, strong) NSMutableDictionary *dictData;
-@property (nonatomic,strong) NSMutableArray *marrXMLData;
-@property (nonatomic,strong) NSMutableString *mstrXMLString;
-@property (nonatomic,strong) NSMutableDictionary *mdictXMLPart;
 
--(void)parse;
+-(NSArray *)parse;
 @end

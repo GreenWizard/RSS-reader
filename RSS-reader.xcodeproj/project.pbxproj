@@ -10,6 +10,7 @@
 		3F814D831DE482FC0056F9FF /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F814D821DE482FC0056F9FF /* NewsCell.xib */; };
 		3F814D891DE48A780056F9FF /* GWPRSSNewsReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F814D881DE48A780056F9FF /* GWPRSSNewsReciever.m */; };
 		3F814D8D1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F814D8C1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m */; };
+		3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */; };
 		CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */; };
 		CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */; };
 		CEA15A611DDC3F56000533AF /* GWPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */; };
@@ -29,6 +30,8 @@
 		3F814D881DE48A780056F9FF /* GWPRSSNewsReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSNewsReciever.m; sourceTree = "<group>"; };
 		3F814D8B1DE4A9DE0056F9FF /* GWPRSSParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSParserDelegate.h; sourceTree = "<group>"; };
 		3F814D8C1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSParserDelegate.m; sourceTree = "<group>"; };
+		3F815C061DE898FF005D03D7 /* GWPXibLoadCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWPXibLoadCategory.h; path = Mini_tasks/GWPXibLoadCategory.h; sourceTree = "<group>"; };
+		3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWPXibLoadCategory.m; path = Mini_tasks/GWPXibLoadCategory.m; sourceTree = "<group>"; };
 		CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverProtocol.h; sourceTree = "<group>"; };
 		CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPDeterminateNewsReciever.h; sourceTree = "<group>"; };
 		CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPDeterminateNewsReciever.m; sourceTree = "<group>"; };
@@ -121,6 +124,15 @@
 			name = DataRecievers;
 			sourceTree = "<group>";
 		};
+		3F815C091DE8990F005D03D7 /* Additional Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				3F815C061DE898FF005D03D7 /* GWPXibLoadCategory.h */,
+				3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */,
+			);
+			name = "Additional Tasks";
+			sourceTree = "<group>";
+		};
 		CEEF069F1DDA0D680069F9B6 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 		CEEF06AA1DDA0D680069F9B6 /* RSS-reader */ = {
 			isa = PBXGroup;
 			children = (
+				3F815C091DE8990F005D03D7 /* Additional Tasks */,
 				CEEF06AE1DDA0D680069F9B6 /* AppDelegate.h */,
 				CEEF06AF1DDA0D680069F9B6 /* AppDelegate.m */,
 				3F814D7D1DE471EB0056F9FF /* Controllers */,
@@ -248,6 +261,7 @@
 				CEEF06B01DDA0D680069F9B6 /* AppDelegate.m in Sources */,
 				CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */,
 				CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */,
+				3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */,
 				CEEF06AD1DDA0D680069F9B6 /* main.m in Sources */,
 				CEA15A671DDC4E53000533AF /* GWPShortNews.m in Sources */,
 				3F814D891DE48A780056F9FF /* GWPRSSNewsReciever.m in Sources */,

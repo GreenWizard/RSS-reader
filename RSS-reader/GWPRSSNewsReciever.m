@@ -75,9 +75,7 @@
 
 -(void)recieveNewsList{
     GWPRSSParserDelegate * parserDelegate = [[GWPRSSParserDelegate alloc] init];
-    NSMutableArray *recievedNewsList = [[NSMutableArray alloc]init];
-    [parserDelegate parse];
-    NSArray *parsingResult = parserDelegate.marrXMLData;
+    NSArray *parsingResult = [parserDelegate parse];
     
     if(![parsingResult count])
     {
@@ -86,17 +84,12 @@
     }
     
     int ID = 0;
-    for(NSDictionary* newsRecord in parsingResult)
+    for(GWPShortNews* news in parsingResult)
     {
-        GWPShortNews *news = [GWPShortNews createNews:[NSNumber numberWithInt:ID]
-                                                title:[newsRecord objectForKey:@"title"]
-                                      publicationDate:[newsRecord objectForKey:@"pubDate"]
-                                              details:[newsRecord objectForKey:@"description"]
-                                                 link:[NSURL URLWithString:[newsRecord objectForKey:@"link"]]];
-        [recievedNewsList addObject:news];
+        news.newsId = [NSNumber numberWithInt:ID];
         ++ID;
     }
     [self.delegate inputClosed];
-    newsList = recievedNewsList;
+    newsList = [parsingResult mutableCopy];
 }
 @end
