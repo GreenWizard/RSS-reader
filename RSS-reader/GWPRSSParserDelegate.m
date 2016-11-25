@@ -22,7 +22,7 @@
     
     if(flag)
     {
-        url = [NSURL URLWithString:@"https://news.yandex.ru/hardware.rss"];
+        url = [NSURL URLWithString:@"https://russian.rt.com/rss"];
         flag = NO;
     }
     else
@@ -66,6 +66,19 @@
         [marrXMLData addObject:mdictXMLPart];
     }
     mstrXMLString = nil;
+}
+
+-(void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
+{
+    NSString *someString = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
+    int i = 0;
+    while(i<[someString length])
+        if([someString characterAtIndex:i]!='<') ++i;
+        else break;
+    if(i == [someString length])
+        mstrXMLString = [someString mutableCopy];
+    else
+        mstrXMLString = [[someString substringWithRange:NSMakeRange(0, i)] mutableCopy];
 }
 
 @end
