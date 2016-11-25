@@ -23,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F7254CB1DE58B6200893BA7 /* RSS-reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RSS-reader.entitlements"; sourceTree = "<group>"; };
 		3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverDelegate.h; sourceTree = "<group>"; };
 		3F814D821DE482FC0056F9FF /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		3F814D871DE48A780056F9FF /* GWPRSSNewsReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSNewsReciever.h; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 		CEEF06AA1DDA0D680069F9B6 /* RSS-reader */ = {
 			isa = PBXGroup;
 			children = (
-				3F7254CB1DE58B6200893BA7 /* RSS-reader.entitlements */,
 				CEEF06AE1DDA0D680069F9B6 /* AppDelegate.h */,
 				CEEF06AF1DDA0D680069F9B6 /* AppDelegate.m */,
 				3F814D7D1DE471EB0056F9FF /* Controllers */,
