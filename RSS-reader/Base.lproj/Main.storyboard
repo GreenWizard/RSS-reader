@@ -22,7 +22,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News List" id="p2n-OG-deQ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="stop" id="fYG-WC-paU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="fYG-WC-paU">
                             <connections>
                                 <action selector="refreshClicked:" destination="b32-hx-91J" id="0eT-Tg-Czc"/>
                             </connections>
@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="-372" y="-240"/>
         </scene>
-        <!--News Title-->
+        <!--News Body View Controller-->
         <scene sceneID="ZOj-gy-WXS">
             <objects>
                 <viewController id="kOR-ez-6ZG" customClass="GWPNewsBodyViewController" sceneMemberID="viewController">
@@ -50,23 +50,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lh2-iA-cyT">
-                                <rect key="frame" x="16" y="72" width="343" height="575"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="News Title" id="o4r-UG-kej">
+                    <navigationItem key="navigationItem" id="o4r-UG-kej">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="NNn-va-nuJ">
                             <connections>
                                 <segue destination="JRA-GY-F3D" kind="unwind" unwindAction="unwindForSegue:" id="xFz-F0-qPo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newsDetails" destination="Lh2-iA-cyT" id="xQD-eB-FDO"/>
                         <outlet property="newsTitle" destination="o4r-UG-kej" id="j2d-mz-txC"/>
@@ -75,7 +76,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fc7-Vi-9I3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JRA-GY-F3D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-240"/>
+            <point key="canvasLocation" x="636" y="-240.62968515742131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cs7-L2-Gqm">

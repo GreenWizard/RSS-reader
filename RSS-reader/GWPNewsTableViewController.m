@@ -44,7 +44,7 @@
     GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
     GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
-    cell.Id = news.Id;
+    cell.newsId = news.newsId;
     cell.newsTitle.text = news.title;
     cell.publicationDate.text = news.publicationDate;
     cell.newsDetails.text = news.details;
@@ -82,10 +82,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     GWPNewsTableViewCell *cell = (GWPNewsTableViewCell *)sender;
-    if(cell.Id != nil){
+    if(cell.newsId != nil){
         UIViewController *viewController = segue.destinationViewController;
         GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController;
-        destination.newsId = cell.Id;
+        destination.newsId = cell.newsId;
     }
 }
 

@@ -19,7 +19,8 @@
 @synthesize numberOfNews;
 @synthesize delegate;
 
-+(id)selfHolder:(BOOL)destroy create:(BOOL)create{
++(id)selfHolder:(BOOL)destroy create:(BOOL)create
+{
     static id selfReciever;
     if(create)
         selfReciever = [[GWPRSSNewsReciever alloc]init];
@@ -28,27 +29,26 @@
     return selfReciever;
 }
 
-+(id)getReciever{
++(id)getReciever
+{
     id result = [self selfHolder:NO create:NO];
     if(!result)
         result = [self selfHolder:NO create:YES];
     return result;
 }
 
-+(void)killReciever{
++(void)killReciever
+{
     [self selfHolder:NO create:YES];
 }
 
--(GWPShortNews *)newsById:(NSNumber *)newsId{
+-(GWPShortNews *)newsById:(NSNumber *)newsId
+{
     for(GWPShortNews *news in newsList)
     {
-        if([news.Id isEqual:newsId]){
-            GWPShortNews *newNews = [[GWPShortNews alloc]init];
-            newNews.Id = [news.Id copy];
-            newNews.title = [news.title copy];
-            newNews.details = [news.details copy];
-            newNews.publicationDate = [news.publicationDate copy];
-            newNews.link = [news.link copy];
+        if([news.newsId isEqual:newsId])
+        {
+            GWPShortNews *newNews = [news bodyViewCopy];
             return newNews;
         }
     }
@@ -60,18 +60,14 @@
     NSMutableArray *result =[[NSMutableArray alloc]init];
     for(GWPShortNews *news in newsList)
     {
-        GWPShortNews *newNews = [[GWPShortNews alloc]init];
-        newNews.Id = [news.Id copy];
-        newNews.title = [news.title copy];
-        newNews.details = [news.details copy];
-        newNews.publicationDate = [news.publicationDate copy];
+        GWPShortNews *newNews = [news tableCopy];
         [result addObject:newNews];
     }
-        
     return result;
 }
 
--(void)update{
+-(void)update
+{
     [self.delegate updateStarded];
     [self recieveNewsList];
     [self.delegate updateCompletedWithResult];
@@ -92,12 +88,11 @@
     int ID = 0;
     for(NSDictionary* newsRecord in parsingResult)
     {
-        GWPShortNews *news = [[GWPShortNews alloc]init];
-        news.Id = [NSNumber numberWithInt:ID];
-        news.title = [newsRecord objectForKey:@"title"];
-        news.details = [newsRecord objectForKey:@"description"];
-        news.publicationDate = [newsRecord objectForKey:@"pubDate"];
-        news.link = [NSURL URLWithString:[newsRecord objectForKey:@"link"]];
+        GWPShortNews *news = [GWPShortNews createNews:[NSNumber numberWithInt:ID]
+                                                title:[newsRecord objectForKey:@"title"]
+                                      publicationDate:[newsRecord objectForKey:@"pubDate"]
+                                              details:[newsRecord objectForKey:@"description"]
+                                                 link:[NSURL URLWithString:[newsRecord objectForKey:@"link"]]];
         [recievedNewsList addObject:news];
         ++ID;
     }
