@@ -15,7 +15,7 @@
 -(void)updateStarded;
 -(void)inputClosed;
 -(void)updateCompletedWithResult;
--(void)updateCompletedWithError:(NSString *)error;
+-(void)updateCompletedWithError;
 
 @end
 

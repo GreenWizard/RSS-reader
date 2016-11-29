@@ -79,7 +79,7 @@
     
     if(![parsingResult count])
     {
-        [self.delegate updateCompletedWithError:@"InternetConnectionError"];
+        [self.delegate updateCompletedWithError];
         return;
     }
     

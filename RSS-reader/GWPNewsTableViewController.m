@@ -7,6 +7,7 @@
 @property (strong, readwrite) NSMutableArray *newsStorage;
 @property (strong, readwrite) id <GWPNewsRecieverProtocol> newsReciever;
 @property (readwrite) BOOL interfaceIsLocked;
+@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -21,6 +22,9 @@
     self.newsReciever = [GWPRSSNewsReciever getReciever];
     [self.newsReciever setDelegate:self];
     [self refreshClicked:self];
+    self.indicatorView.center = self.view.center;
+    [self.view addSubview:self.indicatorView];
+    
     
 }
 
@@ -52,12 +56,31 @@
     return cell;
 }
 
+-(UIActivityIndicatorView *)indicatorView
+{
+    if(!_indicatorView)
+        _indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    return _indicatorView;
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(!self.interfaceIsLocked)
     {
         id cell = [tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
     }
+}
+
+
+- (void)showRefreshError{
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"No connection!", nil)
+                                                                    message:NSLocalizedString(@"Can not load RSS", nil)
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
+                                                          style:UIAlertActionStyleDestructive
+                                                        handler:nil];
+    [alert addAction:alertAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
@@ -75,7 +98,6 @@
        [tread start];
     }
 }
-
 
 #pragma mark - Navigation
 
@@ -101,23 +123,26 @@
 -(void)updateStarded
 {
     self.refreshButton.enabled = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{[self.indicatorView startAnimating];});
 }
 
 -(void) updateCompletedWithResult
 {
+    
     self.interfaceIsLocked = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self refreshNewsList];
-    });
+        [self.indicatorView stopAnimating];    });
     self.refreshButton.enabled = YES;
 
 }
 
--(void) updateCompletedWithError:(NSString *)error
+-(void) updateCompletedWithError
 {
+    dispatch_async(dispatch_get_main_queue(), ^{[self.indicatorView stopAnimating];});
     self.refreshButton.enabled = YES;
     self.interfaceIsLocked = NO;
-    NSLog(@"%@", error);
+    [self showRefreshError];
 }
 
 -(void) inputClosed
