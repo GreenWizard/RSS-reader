@@ -21,8 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    id<GWPNewsRecieverProtocol> reciever = [GWPRSSNewsReciever getReciever];
-    self.news = [reciever newsById:self.newsId];
+    id<GWPNewsReciever_NewsBody> reciever = [GWPRSSNewsReciever getReciever];
+    self.news = reciever.currentNews;
     self.newsTitle.title = self.news.publicationDate;
     self.newsDetails.text = [NSString stringWithFormat:@"%@\n\n%@",self.news.title, self.news.details];
 }
@@ -31,14 +31,5 @@
     [super didReceiveMemoryWarning];
     
 }
-
-
-#pragma mark - Navigation
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-}
-
 
 @end

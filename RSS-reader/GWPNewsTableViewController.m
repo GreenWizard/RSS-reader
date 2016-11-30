@@ -5,9 +5,10 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (strong, readwrite) NSMutableArray *newsStorage;
-@property (strong, readwrite) id <GWPNewsRecieverProtocol> newsReciever;
+@property (weak, readwrite) id <GWPNewsReciever_NewsTable> newsReciever;
 @property (readwrite) BOOL interfaceIsLocked;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
+
 
 @end
 
@@ -21,6 +22,7 @@
     
     self.newsReciever = [GWPRSSNewsReciever getReciever];
     [self.newsReciever setDelegate:self];
+    [self.newsReciever loadBaseData];
     [self refreshClicked:self];
     self.indicatorView.center = self.view.center;
     [self.view addSubview:self.indicatorView];
@@ -48,7 +50,6 @@
     GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
     GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
-    cell.newsId = news.newsId;
     cell.newsTitle.text = news.title;
     cell.publicationDate.text = news.publicationDate;
     cell.newsDetails.text = news.details;
@@ -66,8 +67,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(!self.interfaceIsLocked)
     {
-        id cell = [tableView cellForRowAtIndexPath:indexPath];
-        [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
+        if(!self.interfaceIsLocked)
+        {
+            self.newsReciever.currentNewsID = [NSNumber numberWithInteger:indexPath.row];
+            [self performSegueWithIdentifier:@"NewsBodySegue" sender:self];
+        }
     }
 }
 
@@ -93,7 +97,7 @@
     {
        self.refreshButton.enabled = NO;
        NSThread *tread = [[NSThread alloc]initWithTarget:self.newsReciever
-                                                selector:@selector(update)
+                                                selector:@selector(updateNews)
                                                   object:nil];
        [tread start];
     }
@@ -101,15 +105,6 @@
 
 #pragma mark - Navigation
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    GWPNewsTableViewCell *cell = (GWPNewsTableViewCell *)sender;
-    if(cell.newsId != nil){
-        UIViewController *viewController = segue.destinationViewController;
-        GWPNewsBodyViewController *destination = (GWPNewsBodyViewController *)viewController;
-        destination.newsId = cell.newsId;
-    }
-}
 
 #pragma mark - Custom methods
 

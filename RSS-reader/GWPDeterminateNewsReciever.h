@@ -10,6 +10,6 @@
 #import "GWPNewsRecieverProtocol.h"
 #import "GWPShortNews.h"
 
-@interface GWPDeterminateNewsReciever : NSObject <GWPNewsRecieverProtocol>
+@interface GWPDeterminateNewsReciever : NSObject <GWPNewsReciever_NewsTable>
 
 @end

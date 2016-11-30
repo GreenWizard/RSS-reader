@@ -11,6 +11,6 @@
 
 @interface GWPRSSParserDelegate : NSObject 
 
-
+@property (strong, readwrite, atomic) NSURL *urlToParse;
 -(NSArray *)parse;
 @end

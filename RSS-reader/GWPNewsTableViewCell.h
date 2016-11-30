@@ -10,7 +10,6 @@
 
 @interface GWPNewsTableViewCell : UITableViewCell
 
-@property NSNumber *newsId;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *newsTitle;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *publicationDate;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *newsDetails;

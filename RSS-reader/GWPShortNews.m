@@ -10,30 +10,33 @@
 
 @implementation GWPShortNews
 
-+(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsId
++(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsID
                               title:(nullable NSString *)title
                     publicationDate:(nullable NSString *)pubDate
                             details:(nullable NSString *)details
                                link:(nullable NSURL *)link
+                               giud:(nullable NSURL *)guid
 {
     GWPShortNews * news = [[GWPShortNews alloc] init];
     
-    news.newsId = [newsId copy];
+    news.newsID = [newsID copy];
     news.title = [title copy];
     news.publicationDate = [pubDate copy];
     news.details = [details copy];
     news.link = [link copy];
+    news.guid = [guid copy];
     
     return news;
 }
 
 -(nonnull GWPShortNews *)copy
 {
-    return [GWPShortNews createNews:self.newsId
+    return [GWPShortNews createNews:self.newsID
                               title:self.title
                     publicationDate:self.publicationDate
                             details:self.details
-                               link:self.link];
+                               link:self.link
+                               giud:self.guid];
 }
 
 -(nonnull GWPShortNews *)tableCopy
@@ -42,13 +45,15 @@
     if([news.details length] > 30)
         news.details = [news.details substringWithRange:NSMakeRange(0, 29)];
     news.link = nil;
+    news.guid = nil;
     return news;
 }
 
 -(nonnull GWPShortNews *)bodyViewCopy
 {
     GWPShortNews *news = [self copy];
-    news.newsId = nil;
+    news.newsID = nil;
+    news.guid = nil;
     return news;
 }
 

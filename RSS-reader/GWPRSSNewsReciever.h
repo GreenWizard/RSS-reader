@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "GWPNewsRecieverProtocol.h"
+#import "GWPNewsReciever - NewsTableProtocol.h"
 #import "GWPRSSParserDelegate.h"
+#import "GWPRSSDataPack.h"
 
-@interface GWPRSSNewsReciever : NSObject<GWPNewsRecieverProtocol>
+@interface GWPRSSNewsReciever : NSObject<GWPNewsReciever_NewsTable,GWPNewsReciever_NewsBody,GWPNewsReciever_RSSTable>
 
 @end

@@ -25,22 +25,8 @@
 
 - (NSArray *)parse
 {
-    static BOOL flag;
     
-    NSURL *url;
-    
-    if(flag)
-    {
-        url = [NSURL URLWithString:@"https://russian.rt.com/rss"];
-        flag = NO;
-    }
-    else
-    {
-        url = [NSURL URLWithString:@"https://www.vesti.ru/vesti.rss"];
-        flag = YES;
-    }
-    
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.urlToParse];
     [xmlParser setDelegate:self];
     [xmlParser parse];
     return marrXMLData;
@@ -67,7 +53,8 @@
     if ([elementName isEqualToString:@"title"]
         || [elementName isEqualToString:@"pubDate"]
         || [elementName isEqualToString:@"description"]
-        || [elementName isEqualToString:@"link"])
+        || [elementName isEqualToString:@"link"]
+        || [elementName isEqualToString:@"guid"])
     {
         [mdictXMLPart setObject:mstrXMLString forKey:elementName];
     }
@@ -77,7 +64,8 @@
                                                 title:[mdictXMLPart objectForKey:@"title"]
                                       publicationDate:[mdictXMLPart objectForKey:@"pubDate"]
                                               details:[mdictXMLPart objectForKey:@"description"]
-                                                 link:[NSURL URLWithString:[mdictXMLPart objectForKey:@"link"]]];
+                                                 link:[NSURL URLWithString:[mdictXMLPart objectForKey:@"link"]]
+                                                 giud:[NSURL URLWithString:[mdictXMLPart objectForKey:@"guid"]]];
         [marrXMLData addObject:news];
     }
     mstrXMLString = nil;

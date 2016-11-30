@@ -8,6 +8,90 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--RSS List-->
+        <scene sceneID="H2r-eb-dpe">
+            <objects>
+                <tableViewController id="W7t-0h-Kl8" customClass="GWPRSSTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="T55-ok-rfA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="W7t-0h-Kl8" id="F7B-xv-BkL"/>
+                            <outlet property="delegate" destination="W7t-0h-Kl8" id="3se-1p-Frj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="RSS List" id="xYn-Cw-8Jv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="HNO-sr-dIM">
+                            <connections>
+                                <segue destination="TdV-vk-kAS" kind="unwind" unwindAction="unwindForSegue:" id="4PX-sE-ri6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T7A-MD-1IH">
+                            <connections>
+                                <segue destination="Ihc-eo-a0d" kind="show" id="5xu-rT-d4c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79g-Mb-hOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TdV-vk-kAS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="493"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="M3q-lK-xjS">
+            <objects>
+                <viewController id="Ihc-eo-a0d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nBI-v7-GDn"/>
+                        <viewControllerLayoutGuide type="bottom" id="OoY-EG-2fR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qee-BS-rfa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWu-a5-hBA">
+                                <rect key="frame" x="16" y="213" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1n-Bf-xhm">
+                                <rect key="frame" x="16" y="327" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RSS Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msm-pp-7wB">
+                                <rect key="frame" x="16" y="184" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhp-tB-FpV">
+                                <rect key="frame" x="16" y="298" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="dzh-0m-ANs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ur0-Dk-r3y"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOC-IT-3GI"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEY-sX-2R4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="492.50374812593708"/>
+        </scene>
         <!--News List-->
         <scene sceneID="YV9-Ax-Nth">
             <objects>
@@ -22,6 +106,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News List" id="p2n-OG-deQ">
+                        <barButtonItem key="leftBarButtonItem" title="RSS List" id="OPX-dC-biq">
+                            <connections>
+                                <segue destination="W7t-0h-Kl8" kind="show" id="adn-qH-7u5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="fYG-WC-paU">
                             <connections>
                                 <action selector="refreshClicked:" destination="b32-hx-91J" id="0eT-Tg-Czc"/>

@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GWPShortNews.h"
 #import "GWPNewsRecieverProtocol.h"
-#import "GWPDeterminateNewsReciever.h"
 #import "GWPRSSNewsReciever.h"
 
 @interface GWPNewsBodyViewController : UIViewController
-
-@property (atomic, strong) NSNumber *newsId;
 
 @end
