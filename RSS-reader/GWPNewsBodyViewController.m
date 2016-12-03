@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *newsTitle;
 @property (weak, nonatomic) IBOutlet UITextView *newsDetails;
-@property (atomic, strong) GWPShortNews *news;
 
 @end
 
@@ -21,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    id<GWPNewsReciever_NewsBody> reciever = [GWPRSSNewsReciever getReciever];
-    self.news = reciever.currentNews;
     self.newsTitle.title = self.news.publicationDate;
     self.newsDetails.text = [NSString stringWithFormat:@"%@\n\n%@",self.news.title, self.news.details];
 }

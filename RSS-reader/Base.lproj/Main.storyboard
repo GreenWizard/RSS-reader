@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2PC-7S-3I2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bjR-js-Dl0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,27 +23,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RSS List" id="xYn-Cw-8Jv">
-                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="HNO-sr-dIM">
-                            <connections>
-                                <segue destination="TdV-vk-kAS" kind="unwind" unwindAction="unwindForSegue:" id="4PX-sE-ri6"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T7A-MD-1IH">
                             <connections>
-                                <segue destination="Ihc-eo-a0d" kind="show" id="5xu-rT-d4c"/>
+                                <segue destination="Ihc-eo-a0d" kind="show" identifier="RSSList_add" id="5xu-rT-d4c"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="b32-hx-91J" kind="show" identifier="NewsListSegue" id="M4g-WL-jkg"/>
+                        <segue destination="Ihc-eo-a0d" kind="show" identifier="RSSList_edit" id="VZt-NJ-lH1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79g-Mb-hOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="TdV-vk-kAS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-372" y="493"/>
         </scene>
         <!--Title-->
         <scene sceneID="M3q-lK-xjS">
             <objects>
-                <viewController id="Ihc-eo-a0d" sceneMemberID="viewController">
+                <viewController id="Ihc-eo-a0d" customClass="GWPRSSEditViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nBI-v7-GDn"/>
                         <viewControllerLayoutGuide type="bottom" id="OoY-EG-2fR"/>
@@ -80,17 +78,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfb-xa-IPG">
+                                <rect key="frame" x="148" y="409" width="78" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete RSS"/>
+                                <connections>
+                                    <segue destination="blt-Di-TSb" kind="unwind" identifier="AddRSS_delete" unwindAction="unwindForSegue:" id="Le6-i7-xQd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="dzh-0m-ANs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ur0-Dk-r3y"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOC-IT-3GI"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ur0-Dk-r3y">
+                            <connections>
+                                <segue destination="blt-Di-TSb" kind="unwind" identifier="AddRSS_cancel" unwindAction="unwindForSegue:" id="VxO-4Y-G76"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOC-IT-3GI">
+                            <connections>
+                                <segue destination="blt-Di-TSb" kind="unwind" identifier="AddRSS_save" unwindAction="unwindForSegue:" id="7nn-uC-fnX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="Jfb-xa-IPG" id="B13-yL-qhO"/>
+                        <outlet property="rssLink" destination="h1n-Bf-xhm" id="lsf-PV-GaB"/>
+                        <outlet property="rssTitle" destination="JWu-a5-hBA" id="9OD-96-4sR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEY-sX-2R4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="blt-Di-TSb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="612" y="492.50374812593708"/>
+            <point key="canvasLocation" x="500" y="492.50374812593708"/>
         </scene>
         <!--News List-->
         <scene sceneID="YV9-Ax-Nth">
@@ -106,12 +126,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News List" id="p2n-OG-deQ">
-                        <barButtonItem key="leftBarButtonItem" title="RSS List" id="OPX-dC-biq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="OPX-dC-biq">
                             <connections>
-                                <segue destination="W7t-0h-Kl8" kind="show" id="adn-qH-7u5"/>
+                                <segue destination="Q3B-eL-Mkw" kind="unwind" unwindAction="unwindForSegue:" id="1Ux-46-Z73"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="fYG-WC-paU">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="fYG-WC-paU">
                             <connections>
                                 <action selector="refreshClicked:" destination="b32-hx-91J" id="0eT-Tg-Czc"/>
                             </connections>
@@ -123,6 +143,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Vn-04H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Q3B-eL-Mkw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-372" y="-240"/>
         </scene>
@@ -152,7 +173,7 @@
                     <navigationItem key="navigationItem" id="o4r-UG-kej">
                         <barButtonItem key="leftBarButtonItem" systemItem="reply" id="NNn-va-nuJ">
                             <connections>
-                                <segue destination="JRA-GY-F3D" kind="unwind" unwindAction="unwindForSegue:" id="xFz-F0-qPo"/>
+                                <segue destination="JRA-GY-F3D" kind="unwind" unwindAction="unwindForSegue:" id="P9g-q4-IY8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,25 +186,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fc7-Vi-9I3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JRA-GY-F3D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-240.62968515742131"/>
+            <point key="canvasLocation" x="500" y="-241"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cs7-L2-Gqm">
+        <scene sceneID="2wX-f5-yqy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2PC-7S-3I2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bjR-js-Dl0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vah-In-FUs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGn-7I-fsY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="b32-hx-91J" kind="relationship" relationship="rootViewController" id="Nnp-pB-5Lg"/>
+                        <segue destination="W7t-0h-Kl8" kind="relationship" relationship="rootViewController" id="Jel-sS-yFQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3eK-3P-dih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nV0-hO-yxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-942"/>
+            <point key="canvasLocation" x="-1159" y="493"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5xu-rT-d4c"/>
+    </inferredMetricsTieBreakers>
 </document>

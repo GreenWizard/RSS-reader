@@ -25,11 +25,17 @@
 
 - (NSArray *)parse
 {
+    @try
+    {
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.urlToParse];
+        [xmlParser setDelegate:self];
+        [xmlParser parse];
+        return marrXMLData;
+    }
+        
+    @finally{}
+        return nil;
     
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.urlToParse];
-    [xmlParser setDelegate:self];
-    [xmlParser parse];
-    return marrXMLData;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict

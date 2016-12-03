@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="371" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aBm-0G-6V2" id="63c-st-71U">
-                <rect key="frame" x="0.0" y="0.0" width="371" height="55"/>
+                <rect key="frame" x="0.0" y="0.0" width="371" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEJ-tI-S4Q">
@@ -28,6 +28,9 @@
                         <rect key="frame" x="317" y="12" width="46" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Edit"/>
+                        <connections>
+                            <action selector="editButtonClicked:" destination="aBm-0G-6V2" eventType="touchUpInside" id="l8j-nJ-Xw9"/>
+                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>
@@ -35,7 +38,7 @@
                 <outlet property="editButton" destination="uK0-aR-DuY" id="wP9-8F-ru8"/>
                 <outlet property="title" destination="xEJ-tI-S4Q" id="k9X-jA-yiE"/>
             </connections>
-            <point key="canvasLocation" x="-30.5" y="-2.5"/>
+            <point key="canvasLocation" x="-148" y="-12"/>
         </tableViewCell>
     </objects>
 </document>

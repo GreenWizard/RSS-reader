@@ -7,10 +7,12 @@
 //
 
 #import "GWPRSSTableViewController.h"
+#import "GWPRSSEditViewController.h"
+#import "GWPRSSCell_ButtonAction.h"
 
-@interface GWPRSSTableViewController ()
+@interface GWPRSSTableViewController ()<GWPRSSCell_ButtonAction>
 
-@property (strong, nonatomic, readwrite) NSMutableArray *rssList;
+@property (strong, nonatomic, readwrite) NSArray *rssList;
 @property (weak, readwrite) id<GWPNewsReciever_RSSTable> reciever;
 
 @end
@@ -24,13 +26,9 @@
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RSSListCell"];
     self.reciever = [GWPRSSNewsReciever getReciever];
     
-    self.rssList = [[self.reciever rssList] mutableCopy];
+    [self. reciever loadBaseData];
+    self.rssList = [self.reciever rssList];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
 }
 
 #pragma mark - Table view data source
@@ -48,20 +46,39 @@
     GWPRSSListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RSSListCell" forIndexPath:indexPath];
     
     GWPRSS *rss = [self.rssList objectAtIndex:indexPath.row];
-    cell.title.text = rss.title;
+    cell.currentRSS = rss;
+    cell.tableView = self;
     
     return cell;
 }
 
+-(void)rssCell:(GWPRSSListCell *)cell editButtonClicked:(UIButton *)button
+{
+    [self performSegueWithIdentifier:@"RSSList_edit" sender:cell];
+}
 
 
+-(IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue
+{
+    self.rssList = self.reciever.rssList;
+    [self.tableView reloadData];
+}
+
+ -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.reciever.currentRSS = [self.rssList objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"NewsListSegue" sender:self];
+}
 
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"RSSList_edit"])
+    {
+        GWPRSSEditViewController *destination = segue.destinationViewController;
+        destination.rss = [(GWPRSSListCell *)sender currentRSS];
+    }
 }
 
 

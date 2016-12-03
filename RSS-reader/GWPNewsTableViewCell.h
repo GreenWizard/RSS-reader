@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GWPShortNews.h"
 
 @interface GWPNewsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic, readonly) IBOutlet UILabel *newsTitle;
-@property (weak, nonatomic, readonly) IBOutlet UILabel *publicationDate;
-@property (weak, nonatomic, readonly) IBOutlet UILabel *newsDetails;
+@property (strong, nonatomic, readwrite) GWPShortNews *currentNews;
 
 @end

@@ -16,7 +16,6 @@
 
 @implementation GWPRSSNewsReciever
 @synthesize delegate;
-@synthesize currentNewsID;
 @synthesize currentRSS;
 
 
@@ -34,24 +33,6 @@
 }
 
 
--(GWPShortNews *)newsByID:(NSNumber *)newsID
-{
-    NSMutableArray *currentNewsList = [[self.rssData objectForKey:self.currentRSS.link] news];
-    for(GWPShortNews *news in currentNewsList)
-    {
-        if([news.newsID isEqual:newsID])
-        {
-            GWPShortNews *newNews = [news bodyViewCopy];
-            return newNews;
-        }
-    }
-    return nil;
-}
-
--(GWPShortNews *)currentNews
-{
-    return [self newsByID:self.currentNewsID];
-}
 
 -(NSArray *)newsList
 {
@@ -163,11 +144,6 @@
     [self.rssData setObject:google forKey:google.link];
     [self.rssData setObject:vesti forKey:vesti.link];
     self.currentRSS = current;
-}
-
--(void)updateRSSList
-{
-#warning uncomplete;
 }
 
 @end

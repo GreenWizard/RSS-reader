@@ -12,6 +12,6 @@
 #import "GWPRSSParserDelegate.h"
 #import "GWPRSSDataPack.h"
 
-@interface GWPRSSNewsReciever : NSObject<GWPNewsReciever_NewsTable,GWPNewsReciever_NewsBody,GWPNewsReciever_RSSTable>
+@interface GWPRSSNewsReciever : NSObject<GWPNewsReciever_NewsTable,GWPNewsReciever_RSSTable>
 
 @end

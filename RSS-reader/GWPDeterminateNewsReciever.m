@@ -15,7 +15,7 @@
 @implementation GWPDeterminateNewsReciever
 @synthesize newsList;
 @synthesize delegate;
-@synthesize currentNewsID;
+
 
 +(id)getReciever{
     return [[GWPDeterminateNewsReciever alloc]init];
@@ -50,10 +50,6 @@
     return news;
 }
 
--(GWPShortNews *)currentNews
-{
-    return [self newsByID:self.currentNewsID];
-}
 
 
 @end

@@ -26,6 +26,5 @@
 
 -(nonnull GWPShortNews *)copy;
 -(nonnull GWPShortNews *)tableCopy;
--(nonnull GWPShortNews *)bodyViewCopy;
 
 @end

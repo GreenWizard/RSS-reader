@@ -11,6 +11,7 @@
 #import "GWPNewsTableViewCell.h"
 #import "GWPNewsRecieverProtocol.h"
 #import "GWPRSSNewsReciever.h"
+#import "GWPNewsBodyViewController.h"
 
 @interface GWPNewsTableViewController : UITableViewController<GWPNewsRecieverDelegate>
 

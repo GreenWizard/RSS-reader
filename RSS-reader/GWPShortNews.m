@@ -42,19 +42,10 @@
 -(nonnull GWPShortNews *)tableCopy
 {
     GWPShortNews *news = [self copy];
-    if([news.details length] > 30)
-        news.details = [news.details substringWithRange:NSMakeRange(0, 29)];
     news.link = nil;
     news.guid = nil;
     return news;
 }
 
--(nonnull GWPShortNews *)bodyViewCopy
-{
-    GWPShortNews *news = [self copy];
-    news.newsID = nil;
-    news.guid = nil;
-    return news;
-}
 
 @end

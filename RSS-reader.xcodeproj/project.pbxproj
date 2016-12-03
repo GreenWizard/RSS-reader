@@ -13,6 +13,8 @@
 		3F814D891DE48A780056F9FF /* GWPRSSNewsReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F814D881DE48A780056F9FF /* GWPRSSNewsReciever.m */; };
 		3F814D8D1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F814D8C1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m */; };
 		3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */; };
+		3F9B056A1DF2E15F00E1EA8C /* ActivityIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9B05691DF2E15F00E1EA8C /* ActivityIndicator.xib */; };
+		3F9B05731DF2FD0F00E1EA8C /* GWPRSSEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9B05721DF2FD0F00E1EA8C /* GWPRSSEditViewController.m */; };
 		3FAEE4DE1DEDE52B00A67BB2 /* GWPRSSListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DD1DEDE52B00A67BB2 /* GWPRSSListCell.m */; };
 		3FAEE4E01DEDE54D00A67BB2 /* GWPRSSNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */; };
 		3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */; };
@@ -34,7 +36,6 @@
 		3F6B4E641DEEE5EB000D25BD /* GWPRSSDataPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSDataPack.h; sourceTree = "<group>"; };
 		3F6B4E651DEEE5EB000D25BD /* GWPRSSDataPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSDataPack.m; sourceTree = "<group>"; };
 		3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever - NewsTableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GWPNewsReciever - NewsTableProtocol.h"; sourceTree = "<group>"; };
-		3F6B4E681DEEF44A000D25BD /* GWPNewsReciever - NewsBodyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GWPNewsReciever - NewsBodyProtocol.h"; sourceTree = "<group>"; };
 		3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever - RSSTableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GWPNewsReciever - RSSTableProtocol.h"; sourceTree = "<group>"; };
 		3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverDelegate.h; sourceTree = "<group>"; };
 		3F814D821DE482FC0056F9FF /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -44,6 +45,10 @@
 		3F814D8C1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSParserDelegate.m; sourceTree = "<group>"; };
 		3F815C061DE898FF005D03D7 /* GWPXibLoadCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWPXibLoadCategory.h; path = Mini_tasks/GWPXibLoadCategory.h; sourceTree = "<group>"; };
 		3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWPXibLoadCategory.m; path = Mini_tasks/GWPXibLoadCategory.m; sourceTree = "<group>"; };
+		3F9B05691DF2E15F00E1EA8C /* ActivityIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicator.xib; sourceTree = "<group>"; };
+		3F9B056D1DF2E87400E1EA8C /* GWPRSSCell_ButtonAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPRSSCell_ButtonAction.h; sourceTree = "<group>"; };
+		3F9B05711DF2FD0F00E1EA8C /* GWPRSSEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSEditViewController.h; sourceTree = "<group>"; };
+		3F9B05721DF2FD0F00E1EA8C /* GWPRSSEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSEditViewController.m; sourceTree = "<group>"; };
 		3FAEE4DC1DEDE52B00A67BB2 /* GWPRSSListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSListCell.h; sourceTree = "<group>"; };
 		3FAEE4DD1DEDE52B00A67BB2 /* GWPRSSListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSListCell.m; sourceTree = "<group>"; };
 		3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPRSSNewsCell.xib; sourceTree = "<group>"; };
@@ -114,7 +119,6 @@
 				3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */,
 				CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */,
 				3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever - NewsTableProtocol.h */,
-				3F6B4E681DEEF44A000D25BD /* GWPNewsReciever - NewsBodyProtocol.h */,
 				3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever - RSSTableProtocol.h */,
 			);
 			name = Prootocols;
@@ -125,6 +129,7 @@
 			children = (
 				3F814D821DE482FC0056F9FF /* NewsCell.xib */,
 				3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */,
+				3F9B05691DF2E15F00E1EA8C /* ActivityIndicator.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3F6B4E5E1DEEDA1F000D25BD /* RSS-List */,
+				3F9B05741DF2FD1600E1EA8C /* RSSEdit */,
 				3F6B4E5F1DEEDA51000D25BD /* News-List */,
 				3F6B4E601DEEDA68000D25BD /* NewsBody */,
 			);
@@ -159,6 +165,7 @@
 		3F814D7E1DE472170056F9FF /* Custom Ui elements */ = {
 			isa = PBXGroup;
 			children = (
+				3F9B056D1DF2E87400E1EA8C /* GWPRSSCell_ButtonAction.h */,
 				CEA15A621DDC489F000533AF /* GWPNewsTableViewCell.h */,
 				CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */,
 				3FAEE4DC1DEDE52B00A67BB2 /* GWPRSSListCell.h */,
@@ -198,6 +205,15 @@
 				3F815C071DE898FF005D03D7 /* GWPXibLoadCategory.m */,
 			);
 			name = "Additional Tasks";
+			sourceTree = "<group>";
+		};
+		3F9B05741DF2FD1600E1EA8C /* RSSEdit */ = {
+			isa = PBXGroup;
+			children = (
+				3F9B05711DF2FD0F00E1EA8C /* GWPRSSEditViewController.h */,
+				3F9B05721DF2FD0F00E1EA8C /* GWPRSSEditViewController.m */,
+			);
+			name = RSSEdit;
 			sourceTree = "<group>";
 		};
 		CEEF069F1DDA0D680069F9B6 = {
@@ -314,6 +330,7 @@
 				CEEF06BB1DDA0D680069F9B6 /* LaunchScreen.storyboard in Resources */,
 				CEEF06B81DDA0D680069F9B6 /* Assets.xcassets in Resources */,
 				3F814D831DE482FC0056F9FF /* NewsCell.xib in Resources */,
+				3F9B056A1DF2E15F00E1EA8C /* ActivityIndicator.xib in Resources */,
 				CEEF06B61DDA0D680069F9B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +350,7 @@
 				CEEF06B01DDA0D680069F9B6 /* AppDelegate.m in Sources */,
 				3F6B4E661DEEE5EB000D25BD /* GWPRSSDataPack.m in Sources */,
 				CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */,
+				3F9B05731DF2FD0F00E1EA8C /* GWPRSSEditViewController.m in Sources */,
 				CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */,
 				3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */,
 				CEEF06AD1DDA0D680069F9B6 /* main.m in Sources */,

@@ -8,6 +8,7 @@
 @property (weak, readwrite) id <GWPNewsReciever_NewsTable> newsReciever;
 @property (readwrite) BOOL interfaceIsLocked;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
+@property (strong, nonatomic) UIBarButtonItem *refreshButtonStorage;
 
 
 @end
@@ -22,10 +23,7 @@
     
     self.newsReciever = [GWPRSSNewsReciever getReciever];
     [self.newsReciever setDelegate:self];
-    [self.newsReciever loadBaseData];
     [self refreshClicked:self];
-    self.indicatorView.center = self.view.center;
-    [self.view addSubview:self.indicatorView];
     
     
 }
@@ -50,9 +48,7 @@
     GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
     GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
-    cell.newsTitle.text = news.title;
-    cell.publicationDate.text = news.publicationDate;
-    cell.newsDetails.text = news.details;
+    cell.currentNews = news;
     
     return cell;
 }
@@ -69,8 +65,8 @@
     {
         if(!self.interfaceIsLocked)
         {
-            self.newsReciever.currentNewsID = [NSNumber numberWithInteger:indexPath.row];
-            [self performSegueWithIdentifier:@"NewsBodySegue" sender:self];
+            id cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
         }
     }
 }
@@ -93,6 +89,7 @@
 }
 
 - (IBAction)refreshClicked:(id)sender {
+    
     if(self.refreshButton.enabled)
     {
        self.refreshButton.enabled = NO;
@@ -105,6 +102,14 @@
 
 #pragma mark - Navigation
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"NewsBodySegue"])
+    {
+        GWPNewsBodyViewController *dectination = segue.destinationViewController;
+        dectination.news = [(GWPNewsTableViewCell *)sender currentNews];
+    }
+}
 
 #pragma mark - Custom methods
 
@@ -117,8 +122,13 @@
 
 -(void)updateStarded
 {
-    self.refreshButton.enabled = NO;
-    dispatch_async(dispatch_get_main_queue(), ^{[self.indicatorView startAnimating];});
+        dispatch_async(dispatch_get_main_queue(), ^{
+        [self.indicatorView startAnimating];
+        self.refreshButton.enabled = NO;
+        self.refreshButtonStorage = self.refreshButton;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                  initWithCustomView:self.indicatorView];
+    });
 }
 
 -(void) updateCompletedWithResult
@@ -127,17 +137,25 @@
     self.interfaceIsLocked = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self refreshNewsList];
-        [self.indicatorView stopAnimating];    });
-    self.refreshButton.enabled = YES;
+        [self.indicatorView stopAnimating];
+        self.refreshButton.enabled = YES;
+        self.navigationItem.rightBarButtonItem = self.refreshButton;
+    });
+    
 
 }
 
 -(void) updateCompletedWithError
 {
-    dispatch_async(dispatch_get_main_queue(), ^{[self.indicatorView stopAnimating];});
-    self.refreshButton.enabled = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.indicatorView stopAnimating];
+        self.refreshButton.enabled = YES;
+        self.navigationItem.rightBarButtonItem = self.refreshButtonStorage;
+        [self showRefreshError];
+        [self showRefreshError];
+    });
     self.interfaceIsLocked = NO;
-    [self showRefreshError];
+
 }
 
 -(void) inputClosed
