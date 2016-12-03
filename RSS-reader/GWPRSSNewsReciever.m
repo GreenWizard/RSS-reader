@@ -133,7 +133,7 @@
                                                               link:[NSURL URLWithString:@"https://news.google.com/?output=rss"]
                                                                               newsArray:nil];
     GWPRSSDataPack *vesti = [[GWPRSSDataPack alloc] initWithTitle:@"Vesti.ru"
-                                                             link:[NSURL URLWithString:@"http://www.vesti.ru/vesti.rss"]
+                                                             link:[NSURL URLWithString:@"https://www.vesti.ru/vesti.rss"]
                                                         newsArray:nil];
     GWPRSS *current = [[GWPRSS alloc] init];
     

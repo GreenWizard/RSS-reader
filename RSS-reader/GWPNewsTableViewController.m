@@ -152,7 +152,6 @@
         self.refreshButton.enabled = YES;
         self.navigationItem.rightBarButtonItem = self.refreshButtonStorage;
         [self showRefreshError];
-        [self showRefreshError];
     });
     self.interfaceIsLocked = NO;
 
