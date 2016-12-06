@@ -19,14 +19,19 @@
 {
     GWPShortNews * news = [[GWPShortNews alloc] init];
     
-    news.newsID = [newsID copy];
-    news.title = [title copy];
-    news.publicationDate = [pubDate copy];
-    news.details = [details copy];
-    news.link = [link copy];
-    news.guid = [guid copy];
+    news.newsID = newsID;
+    news.title = title;
+    news.publicationDate = pubDate;
+    news.details = details;
+    news.link = link;
+    news.guid = guid;
     
     return news;
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    return [self copy];
 }
 
 -(nonnull GWPShortNews *)copy

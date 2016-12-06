@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GWPShortNews : NSObject
+@interface GWPShortNews : NSObject <NSCopying>
 
-@property (strong, nullable) NSNumber *newsID;
-@property (strong, nullable) NSString *title;
-@property (strong, nullable) NSString *publicationDate;
-@property (strong, nullable) NSString *details;
-@property (strong, nullable) NSURL *link;
-@property (strong, nullable) NSURL *guid;
+@property (copy, nullable, nonatomic) NSNumber *newsID;
+@property (copy, nullable, nonatomic) NSString *title;
+@property (copy, nullable, nonatomic) NSString *publicationDate;
+@property (copy, nullable, nonatomic) NSString *details;
+@property (copy, nullable, nonatomic) NSURL *link;
+@property (copy, nullable, nonatomic) NSURL *guid;
 
 +(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsID
                               title:(nullable NSString *)title
