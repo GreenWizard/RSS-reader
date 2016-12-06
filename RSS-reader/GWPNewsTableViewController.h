@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GWPShortNews.h"
 #import "GWPNewsTableViewCell.h"
-#import "GWPNewsReciever - NewsTableProtocol.h"
+#import "GWPNewsReciever_NewsTable.h"
 #import "GWPRSSNewsReciever.h"
 #import "GWPNewsBodyViewController.h"
 

@@ -34,8 +34,8 @@
 		3F6B4E5A1DEED18B000D25BD /* GWPRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSS.m; sourceTree = "<group>"; };
 		3F6B4E641DEEE5EB000D25BD /* GWPRSSDataPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSDataPack.h; sourceTree = "<group>"; };
 		3F6B4E651DEEE5EB000D25BD /* GWPRSSDataPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSDataPack.m; sourceTree = "<group>"; };
-		3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever - NewsTableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GWPNewsReciever - NewsTableProtocol.h"; sourceTree = "<group>"; };
-		3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever - RSSTableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GWPNewsReciever - RSSTableProtocol.h"; sourceTree = "<group>"; };
+		3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever_NewsTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPNewsReciever_NewsTable.h; sourceTree = "<group>"; };
+		3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever_RSSTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPNewsReciever_RSSTable.h; sourceTree = "<group>"; };
 		3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverDelegate.h; sourceTree = "<group>"; };
 		3F814D821DE482FC0056F9FF /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		3F814D871DE48A780056F9FF /* GWPRSSNewsReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSNewsReciever.h; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */,
-				3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever - NewsTableProtocol.h */,
-				3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever - RSSTableProtocol.h */,
+				3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever_NewsTable.h */,
+				3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever_RSSTable.h */,
 			);
 			name = Prootocols;
 			sourceTree = "<group>";
