@@ -12,6 +12,6 @@
 
 @interface GWPNewsBodyViewController : UIViewController
 
-@property (atomic, strong) GWPShortNews *news;
+@property (strong, nonatomic) GWPShortNews *news;
 
 @end

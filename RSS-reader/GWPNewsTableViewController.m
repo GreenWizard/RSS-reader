@@ -92,11 +92,12 @@
     
     if(self.refreshButton.enabled)
     {
-       self.refreshButton.enabled = NO;
-       NSThread *tread = [[NSThread alloc]initWithTarget:self.newsReciever
+        self.refreshButton.enabled = NO;
+        self.navigationItem.title = self.newsReciever.currentRSS.title;
+        NSThread *tread = [[NSThread alloc]initWithTarget:self.newsReciever
                                                 selector:@selector(updateNews)
                                                   object:nil];
-       [tread start];
+        [tread start];
     }
 }
 
