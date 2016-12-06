@@ -37,8 +37,10 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    unsigned long notNil = (self.rssLink.text.length)*(self.rssTitle.text.length);
-    if([segue.identifier isEqualToString:@"AddRSS_save"]&&(notNil))
+
+    if([segue.identifier isEqualToString:@"AddRSS_save"]
+       &&(self.rssLink.text.length > 0)
+       && (self.rssTitle.text.length > 0))
     {
         id<GWPNewsReciever_RSSTable> reciever = [GWPRSSNewsReciever getReciever];
         GWPRSS *newRSS = [[GWPRSS alloc]init];
