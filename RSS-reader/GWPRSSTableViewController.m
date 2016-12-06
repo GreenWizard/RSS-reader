@@ -26,7 +26,7 @@
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RSSListCell"];
     self.reciever = [GWPRSSNewsReciever getReciever];
     
-    [self. reciever loadBaseData];
+    [self.reciever loadBaseData];
     self.rssList = [self.reciever rssList];
     
 }

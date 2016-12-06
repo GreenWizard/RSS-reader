@@ -22,14 +22,13 @@
 
 +(id)getReciever
 {
-    static id selfReciever;
-    if(!selfReciever)
-    {
-        selfReciever = [[GWPRSSNewsReciever alloc] init];
-        GWPRSSNewsReciever * reciever =(GWPRSSNewsReciever *)selfReciever;
-        reciever.rssData = [[NSMutableDictionary alloc]initWithCapacity:0];
-    }
-    return selfReciever;
+    static GWPRSSNewsReciever *_self;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate,^{
+        _self = [[GWPRSSNewsReciever alloc]init];
+        _self.rssData = [[NSMutableDictionary alloc]initWithCapacity:0];
+    });
+    return _self;
 }
 
 

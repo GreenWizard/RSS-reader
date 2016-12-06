@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GWPNewsRecieverProtocol.h"
+#import "GWPNewsReciever - RSSTableProtocol.h"
 #import "GWPNewsReciever - NewsTableProtocol.h"
 #import "GWPRSSParserDelegate.h"
 #import "GWPRSSDataPack.h"

@@ -18,7 +18,6 @@
 		3FAEE4DE1DEDE52B00A67BB2 /* GWPRSSListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DD1DEDE52B00A67BB2 /* GWPRSSListCell.m */; };
 		3FAEE4E01DEDE54D00A67BB2 /* GWPRSSNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */; };
 		3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */; };
-		CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */; };
 		CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */; };
 		CEA15A611DDC3F56000533AF /* GWPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */; };
 		CEA15A641DDC489F000533AF /* GWPNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */; };
@@ -54,9 +53,6 @@
 		3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPRSSNewsCell.xib; sourceTree = "<group>"; };
 		3FAEE4E11DEDE6C800A67BB2 /* GWPRSSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSTableViewController.h; sourceTree = "<group>"; };
 		3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSTableViewController.m; sourceTree = "<group>"; };
-		CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsRecieverProtocol.h; sourceTree = "<group>"; };
-		CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPDeterminateNewsReciever.h; sourceTree = "<group>"; };
-		CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPDeterminateNewsReciever.m; sourceTree = "<group>"; };
 		CE5C7F191DDDE15100E0943A /* GWPNewsBodyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsBodyViewController.h; sourceTree = "<group>"; };
 		CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPNewsBodyViewController.m; sourceTree = "<group>"; };
 		CEA15A5F1DDC3F56000533AF /* GWPNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsTableViewController.h; sourceTree = "<group>"; };
@@ -117,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				3F7254CC1DE5D7FB00893BA7 /* GWPNewsRecieverDelegate.h */,
-				CE5C7F141DDDC92200E0943A /* GWPNewsRecieverProtocol.h */,
 				3F6B4E671DEEF2E3000D25BD /* GWPNewsReciever - NewsTableProtocol.h */,
 				3F6B4E691DEEF4CC000D25BD /* GWPNewsReciever - RSSTableProtocol.h */,
 			);
@@ -181,8 +176,6 @@
 				3F814D8A1DE4A9560056F9FF /* DataRecievers */,
 				3F814D871DE48A780056F9FF /* GWPRSSNewsReciever.h */,
 				3F814D881DE48A780056F9FF /* GWPRSSNewsReciever.m */,
-				CE5C7F151DDDCB5900E0943A /* GWPDeterminateNewsReciever.h */,
-				CE5C7F161DDDCB5900E0943A /* GWPDeterminateNewsReciever.m */,
 				3F6B4E641DEEE5EB000D25BD /* GWPRSSDataPack.h */,
 				3F6B4E651DEEE5EB000D25BD /* GWPRSSDataPack.m */,
 			);
@@ -349,7 +342,6 @@
 				3F814D8D1DE4A9DE0056F9FF /* GWPRSSParserDelegate.m in Sources */,
 				CEEF06B01DDA0D680069F9B6 /* AppDelegate.m in Sources */,
 				3F6B4E661DEEE5EB000D25BD /* GWPRSSDataPack.m in Sources */,
-				CE5C7F171DDDCB5900E0943A /* GWPDeterminateNewsReciever.m in Sources */,
 				3F9B05731DF2FD0F00E1EA8C /* GWPRSSEditViewController.m in Sources */,
 				CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */,
 				3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */,
