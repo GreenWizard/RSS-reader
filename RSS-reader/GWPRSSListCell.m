@@ -12,33 +12,22 @@
 
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *title;
 @property (weak, nonatomic, readwrite) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UILabel *unreadMassages;
 
 
 @end
 
 @implementation GWPRSSListCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(IBAction)editButtonClicked:(id)sender
+{
+    [self.delegate rssCell:self editButtonClicked:self.editButton];
 }
 
 -(void)setCurrentRSS:(GWPRSS *)currentRSS
 {
-    self.title.text = currentRSS.title;
     _currentRSS = currentRSS;
+    self.title.text = currentRSS.title;
 }
-
--(IBAction)editButtonClicked:(id)sender
-{
-    [self.tableView rssCell:self editButtonClicked:self.editButton];
-}
-
 
 @end

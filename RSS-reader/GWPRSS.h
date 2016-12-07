@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic, readwrite) NSString *title;
 @property (strong, nonatomic, readwrite) NSURL *link;
+@property (strong, nonatomic, readwrite) NSNumber *unreadMassages;
 
 @end

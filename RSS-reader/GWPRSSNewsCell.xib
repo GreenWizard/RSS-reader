@@ -32,13 +32,30 @@
                             <action selector="editButtonClicked:" destination="aBm-0G-6V2" eventType="touchUpInside" id="l8j-nJ-Xw9"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GW8-QI-vbh">
+                        <rect key="frame" x="284" y="15" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.52947312593460083" green="0.71688657999038696" blue="0.087191782891750336" alpha="0.95860980309999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSBackgroundColor" red="0.52947312593460083" green="0.71688657999038696" blue="0.087191782891750336" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" metaFont="system" size="17"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="editButton" destination="uK0-aR-DuY" id="wP9-8F-ru8"/>
                 <outlet property="title" destination="xEJ-tI-S4Q" id="k9X-jA-yiE"/>
+                <outlet property="unreadMassages" destination="GW8-QI-vbh" id="mCu-Ze-xf5"/>
             </connections>
-            <point key="canvasLocation" x="-148" y="-12"/>
+            <point key="canvasLocation" x="-148.5" y="-12.5"/>
         </tableViewCell>
     </objects>
 </document>

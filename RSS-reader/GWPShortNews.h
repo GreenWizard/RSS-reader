@@ -10,19 +10,17 @@
 
 @interface GWPShortNews : NSObject <NSCopying>
 
-@property (copy, nullable, nonatomic) NSNumber *newsID;
 @property (copy, nullable, nonatomic) NSString *title;
 @property (copy, nullable, nonatomic) NSString *publicationDate;
 @property (copy, nullable, nonatomic) NSString *details;
 @property (copy, nullable, nonatomic) NSURL *link;
 @property (copy, nullable, nonatomic) NSURL *guid;
 
-+(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsID
-                              title:(nullable NSString *)title
++(nonnull GWPShortNews *)createNews:(nullable NSString *)title
                     publicationDate:(nullable NSString *)pubDate
                             details:(nullable NSString *)details
                                link:(nullable NSURL *)link
-                               giud:(nullable NSURL *)guid;
+                               giud:(nonnull NSURL *)guid;
 
 -(nonnull GWPShortNews *)copy;
 -(nonnull GWPShortNews *)tableCopy;

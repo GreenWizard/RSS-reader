@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GWPShortNews.h"
 
-@interface GWPRSSParserDelegate : NSObject 
+@interface GWPRSSParser : NSObject 
 
 @property (strong, readwrite, atomic) NSURL *urlToParse;
 -(NSArray *)parse;

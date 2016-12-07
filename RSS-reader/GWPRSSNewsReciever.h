@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "GWPNewsReciever_RSSTable.h"
 #import "GWPNewsReciever_NewsTable.h"
-#import "GWPRSSParserDelegate.h"
+//#import "GWPNewsReciever_NewsBody.h"
+#import "GWPRSSParser.h"
 #import "GWPRSSDataPack.h"
 
 @interface GWPRSSNewsReciever : NSObject<GWPNewsReciever_NewsTable,GWPNewsReciever_RSSTable>

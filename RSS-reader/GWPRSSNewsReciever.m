@@ -73,9 +73,9 @@
 }
 
 -(void)recieveNewsList{
-    GWPRSSParserDelegate * parserDelegate = [[GWPRSSParserDelegate alloc] init];
-    parserDelegate.urlToParse = currentRSS.link;
-    NSArray *parsingResult = [parserDelegate parse];
+    GWPRSSParser * parser = [[GWPRSSParser alloc] init];
+    parser.urlToParse = currentRSS.link;
+    NSArray *parsingResult = [parser parse];
     
     if(![parsingResult count])
     {
@@ -83,12 +83,6 @@
         return;
     }
     
-    int ID = 0;
-    for(GWPShortNews* news in parsingResult)
-    {
-        news.newsID = [NSNumber numberWithInt:ID];
-        ++ID;
-    }
     [self.delegate inputClosed];
     self.newsList = [parsingResult mutableCopy];
     [self.delegate updateCompletedWithResult];
@@ -144,5 +138,7 @@
     [self.rssData setObject:vesti forKey:vesti.link];
     self.currentRSS = current;
 }
+
+
 
 @end

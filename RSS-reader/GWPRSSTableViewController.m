@@ -47,7 +47,7 @@
     
     GWPRSS *rss = [self.rssList objectAtIndex:indexPath.row];
     cell.currentRSS = rss;
-    cell.tableView = self;
+    cell.delegate = self;
     
     return cell;
 }

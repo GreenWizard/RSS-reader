@@ -13,6 +13,6 @@
 @interface GWPRSSListCell : UITableViewCell
 
 @property (strong, nonatomic, readwrite) GWPRSS *currentRSS;
-@property (weak, nonatomic, readwrite) id<GWPRSSCell_ButtonAction> tableView;
+@property (weak, nonatomic, readwrite) id<GWPRSSCell_ButtonAction> delegate;
 
 @end

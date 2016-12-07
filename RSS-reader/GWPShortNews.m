@@ -10,16 +10,14 @@
 
 @implementation GWPShortNews
 
-+(nonnull GWPShortNews *)createNews:(nonnull NSNumber *)newsID
-                              title:(nullable NSString *)title
++(nonnull GWPShortNews *)createNews:(nullable NSString *)title
                     publicationDate:(nullable NSString *)pubDate
                             details:(nullable NSString *)details
                                link:(nullable NSURL *)link
-                               giud:(nullable NSURL *)guid
+                               giud:(nonnull NSURL *)guid
 {
     GWPShortNews * news = [[GWPShortNews alloc] init];
     
-    news.newsID = newsID;
     news.title = title;
     news.publicationDate = pubDate;
     news.details = details;
@@ -36,8 +34,7 @@
 
 -(nonnull GWPShortNews *)copy
 {
-    return [GWPShortNews createNews:self.newsID
-                              title:self.title
+    return [GWPShortNews createNews:self.title
                     publicationDate:self.publicationDate
                             details:self.details
                                link:self.link
@@ -48,7 +45,6 @@
 {
     GWPShortNews *news = [self copy];
     news.link = nil;
-    news.guid = nil;
     return news;
 }
 
