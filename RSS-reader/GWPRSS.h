@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GWPRSSData+CoreDataClass.h"
+
 
 
 @interface GWPRSS : NSObject
 
-@property (strong, nonatomic, readwrite) NSString *title;
-@property (strong, nonatomic, readwrite) NSURL *link;
-@property (strong, nonatomic, readwrite) NSNumber *unreadMassages;
+@property (copy, nonatomic, readonly) NSString *title;
+@property (copy, nonatomic, readonly) NSURL *link;
+@property (nonatomic, readwrite) NSInteger unreadNews;
+
++(GWPRSS *)createRSS:(NSString *)title
+                link:(NSURL *)link
+          unreadNews:(NSInteger )unreadNews;
 
 @end

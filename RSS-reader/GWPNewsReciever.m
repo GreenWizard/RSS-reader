@@ -10,10 +10,19 @@
 
 @implementation GWPNewsReciever
 
--(NSDictionary *)recieveNewsList
+-(NSDictionary *)recieveNews
 {
-    GWPRSSParser *parser = [[GWPRSSParser alloc]init];
-    return nil;
+    @try
+    {
+        GWPRSSParser *parser = [[GWPRSSParser alloc]init];
+        parser.urlToParse = self.url;
+        NSDictionary *result = [parser parse];
+        return result;
+    }
+    @catch(NSException *exception)
+    {
+        return nil;
+    }
 }
 
 @end

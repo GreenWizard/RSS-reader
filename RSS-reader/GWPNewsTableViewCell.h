@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GWPShortNews.h"
+#import "GWPNews.h"
 
 @interface GWPNewsTableViewCell : UITableViewCell
 
-@property (strong, nonatomic, readwrite) GWPShortNews *currentNews;
+@property (strong, nonatomic, readwrite) GWPNews *currentNews;
 
 @end

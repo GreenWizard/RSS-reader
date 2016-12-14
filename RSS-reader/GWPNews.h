@@ -8,21 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GWPShortNews : NSObject <NSCopying>
+@interface GWPNews : NSObject <NSCopying>
 
 @property (copy, nullable, nonatomic) NSString *title;
 @property (copy, nullable, nonatomic) NSString *publicationDate;
 @property (copy, nullable, nonatomic) NSString *details;
-@property (copy, nullable, nonatomic) NSURL *link;
-@property (copy, nullable, nonatomic) NSURL *guid;
+@property (copy, nonnull, nonatomic) NSURL *link;
+@property (readwrite) BOOL isUnread;
 
-+(nonnull GWPShortNews *)createNews:(nullable NSString *)title
++(nonnull GWPNews *)createNews:(nullable NSString *)title
                     publicationDate:(nullable NSString *)pubDate
                             details:(nullable NSString *)details
-                               link:(nullable NSURL *)link
-                               giud:(nonnull NSURL *)guid;
+                               link:(nonnull NSURL *)link;
 
--(nonnull GWPShortNews *)copy;
--(nonnull GWPShortNews *)tableCopy;
+-(nonnull GWPNews *)copy;
 
 @end

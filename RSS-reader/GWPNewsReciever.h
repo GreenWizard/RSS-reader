@@ -7,14 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GWPNewsRecieverDelegate.h"
 #import "GWPRSSParser.h"
 
 @interface GWPNewsReciever : NSObject
 
-@property (weak, nonatomic, readwrite) id <GWPNewsRecieverDelegate> delegate;
 @property (strong, nonatomic, readwrite) NSURL *url;
 
--(NSDictionary *)recieveNewsList;
+-(NSDictionary *)recieveNews;
 
 @end

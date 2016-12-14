@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GWPShortNews.h"
-#import "GWPRSSNewsReciever.h"
+#import "GWPNews.h"
+
 
 @interface GWPNewsBodyViewController : UIViewController
 
-@property (strong, nonatomic) GWPShortNews *news;
+@property (strong, nonatomic) GWPNews *news;
 
 @end

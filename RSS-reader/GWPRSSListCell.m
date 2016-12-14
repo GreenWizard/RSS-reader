@@ -28,6 +28,11 @@
 {
     _currentRSS = currentRSS;
     self.title.text = currentRSS.title;
+    NSNumber *unreadNews = [NSNumber numberWithInteger:currentRSS.unreadNews];
+    if(currentRSS.unreadNews)
+        self.unreadMassages.text = [NSString stringWithFormat:@"%d", [unreadNews intValue]];
+    else
+        self.unreadMassages.text = @"0";
 }
 
 @end

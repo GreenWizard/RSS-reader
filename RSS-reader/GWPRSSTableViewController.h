@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GWPRSS.h"
-#import "GWPRSSListCell.h"
-#import "GWPRSSNewsReciever.h"
+
 
 @interface GWPRSSTableViewController : UITableViewController
 

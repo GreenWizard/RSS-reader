@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GWPShortNews.h"
-#import "GWPNewsTableViewCell.h"
-#import "GWPNewsReciever_NewsTable.h"
-#import "GWPRSSNewsReciever.h"
-#import "GWPNewsBodyViewController.h"
+#import "GWPRSS.h"
 
-@interface GWPNewsTableViewController : UITableViewController<GWPNewsRecieverDelegate>
+
+@interface GWPNewsTableViewController : UITableViewController
+
+@property (strong, nonatomic, readwrite) GWPRSS *currentRSS;
 
 @end

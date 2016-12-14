@@ -9,7 +9,7 @@
 #import "GWPRSSParser.h"
 @interface GWPRSSParser()<NSXMLParserDelegate>
 
-@property (nonatomic,strong) NSMutableArray *newsArray;
+@property (nonatomic,strong) NSMutableDictionary *newsStorage;
 @property (nonatomic,strong) NSMutableString *itemString;
 @property (nonatomic,strong) NSMutableDictionary *newsDictionary;
 
@@ -18,22 +18,22 @@
 
 @implementation GWPRSSParser
 
-@synthesize newsArray;
+@synthesize newsStorage;
 @synthesize itemString;
 @synthesize newsDictionary;
 
-- (NSArray *)parse
+- (NSMutableDictionary *)parse
 {
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.urlToParse];
         [xmlParser setDelegate:self];
         [xmlParser parse];
-        return newsArray;
+        return newsStorage;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict
 {
     if ([elementName isEqualToString:@"rss"]) {
-        newsArray = [[NSMutableArray alloc] init];
+        newsStorage = [[NSMutableDictionary alloc] init];
     }
     if ([elementName isEqualToString:@"item"]) {
         newsDictionary = [[NSMutableDictionary alloc] init];
@@ -52,8 +52,9 @@
     
     if ([elementName isEqualToString:@"item"])
     {
-        GWPShortNews *news = [self createNews];
-        [newsArray addObject:news];
+        GWPNews *news = [self createNews];
+        [newsStorage setObject:news
+                        forKey:news.link];
     }
     itemString = nil;
 }
@@ -64,13 +65,12 @@
                                               encoding:NSUTF8StringEncoding];
 }
 
--(GWPShortNews *)createNews
+-(GWPNews *)createNews
 {
-    return [GWPShortNews createNews:[newsDictionary objectForKey:@"title"]
+    return [GWPNews createNews:[newsDictionary objectForKey:@"title"]
                     publicationDate:[newsDictionary objectForKey:@"pubDate"]
                             details:[newsDictionary objectForKey:@"description"]
-                               link:[NSURL URLWithString:[newsDictionary objectForKey:@"link"]]
-                               giud:[NSURL URLWithString:[newsDictionary objectForKey:@"guid"]]];
+                          link:[NSURL URLWithString:[newsDictionary objectForKey:@"link"]]];
 }
 
 -(void)tryToAddElementToDictionary:(NSString *)elementName
@@ -78,8 +78,7 @@
     if ([elementName isEqualToString:@"title"]
         || [elementName isEqualToString:@"pubDate"]
         || [elementName isEqualToString:@"description"]
-        || [elementName isEqualToString:@"link"]
-        || [elementName isEqualToString:@"guid"])
+        || [elementName isEqualToString:@"link"])
     {
         [newsDictionary setObject:itemString forKey:elementName];
     }

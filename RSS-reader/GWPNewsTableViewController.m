@@ -1,12 +1,16 @@
 
 #import "GWPNewsTableViewController.h"
+#import "GWPNews.h"
+#import "GWPNewsTableViewCell.h"
+#import "GWPDBControllerDelegate.h"
+#import "GWPDBControllerFabric.h"
+#import "GWPNewsBodyViewController.h"
 
-@interface GWPNewsTableViewController ()
+@interface GWPNewsTableViewController ()<GWPDBControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
-@property (strong, readwrite) NSMutableArray *newsStorage;
-@property (weak, readwrite) id <GWPNewsReciever_NewsTable> newsReciever;
-@property (readwrite) BOOL interfaceIsLocked;
+@property (strong, readwrite) NSArray *newsStorage;
+@property (weak, readwrite) id <GWPDBContollerForNewsTable> newsReciever;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 @property (strong, nonatomic) UIBarButtonItem *refreshButtonStorage;
 
@@ -21,7 +25,7 @@
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
-    self.newsReciever = [GWPRSSNewsReciever getReciever];
+    self.newsReciever = [GWPDBControllerFabric getDBControllerForNewsTable];
     [self.newsReciever setDelegate:self];
     [self refreshClicked:self];
     
@@ -40,14 +44,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.newsStorage count];
+    return [self.newsReciever.newsList count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
-    GWPShortNews *news = [self.newsStorage objectAtIndex:indexPath.row];
+    GWPNews *news = [self.newsReciever.newsList objectAtIndex:indexPath.row];
     cell.currentNews = news;
     
     return cell;
@@ -61,14 +65,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(!self.interfaceIsLocked)
-    {
-        if(!self.interfaceIsLocked)
-        {
-            id cell = [self.tableView cellForRowAtIndexPath:indexPath];
-            [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
-        }
-    }
+    id cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"NewsBodySegue" sender:cell];
 }
 
 
@@ -85,7 +83,7 @@
 
 
 - (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
-    
+    [self refreshClicked:self];
 }
 
 - (IBAction)refreshClicked:(id)sender {
@@ -93,12 +91,17 @@
     if(self.refreshButton.enabled)
     {
         self.refreshButton.enabled = NO;
-        self.navigationItem.title = self.newsReciever.currentRSS.title;
-        NSThread *tread = [[NSThread alloc]initWithTarget:self.newsReciever
-                                                selector:@selector(updateNews)
+        self.navigationItem.title = self.currentRSS.title;
+        NSThread *tread = [[NSThread alloc]initWithTarget:self
+                                                 selector:@selector(updateNews)
                                                   object:nil];
         [tread start];
     }
+}
+
+-(void)updateNews
+{
+    [self.newsReciever updateNews:self.currentRSS];
 }
 
 #pragma mark - Navigation
@@ -121,7 +124,7 @@
 
 #pragma mark - Delegate methods
 
--(void)updateStarded
+-(void)dbControllerUpdateStarded:(id)controller
 {
         dispatch_async(dispatch_get_main_queue(), ^{
         [self.indicatorView startAnimating];
@@ -132,10 +135,8 @@
     });
 }
 
--(void) updateCompletedWithResult
+-(void)dbControllerUpdateCompleted:(id)controller
 {
-    
-    self.interfaceIsLocked = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self refreshNewsList];
         [self.indicatorView stopAnimating];
@@ -146,7 +147,7 @@
 
 }
 
--(void) updateCompletedWithError
+-(void)dbControllerUpdateFailed:(id)controller
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.indicatorView stopAnimating];
@@ -154,13 +155,7 @@
         self.navigationItem.rightBarButtonItem = self.refreshButtonStorage;
         [self showRefreshError];
     });
-    self.interfaceIsLocked = NO;
 
-}
-
--(void) inputClosed
-{
-    self.interfaceIsLocked = YES;
 }
 
 @end

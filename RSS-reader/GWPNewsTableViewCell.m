@@ -19,7 +19,7 @@
 
 @implementation GWPNewsTableViewCell
 
--(void)setCurrentNews:(GWPShortNews *)currentNews
+-(void)setCurrentNews:(GWPNews *)currentNews
 {
     self.newsTitle.text = currentNews.title;
     self.publicationDate.text = currentNews.publicationDate;

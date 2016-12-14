@@ -7,7 +7,24 @@
 //
 
 #import "GWPRSS.h"
+@interface GWPRSS()
+
+@property (readwrite) NSString *title;
+@property (readwrite) NSURL *link;
+
+@end
 
 @implementation GWPRSS
+
++(GWPRSS *)createRSS:(NSString *)title
+                link:(NSURL *)link
+          unreadNews:(NSInteger )unreadNews
+{
+    GWPRSS *result = [[GWPRSS alloc] init];
+    result.title = title;
+    result.link = link;
+    result.unreadNews = unreadNews;
+    return result;
+}
 
 @end
