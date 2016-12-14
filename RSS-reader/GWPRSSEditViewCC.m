@@ -17,7 +17,7 @@
     GWPRSSData *object = [self findObject:rss];
     if(object)
     {
-        
+        [self deleteNews:rss];
         [self.context deleteObject:object];
         [self save];
     }
@@ -64,6 +64,17 @@
     }
     
     return [results objectAtIndex:0];
+}
+
+-(void)deleteNews:(GWPRSS *)rss
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
+    request.predicate = [NSPredicate predicateWithFormat:@"rssLink == %@", [rss.link absoluteString]];
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    
+    for(GWPRSSData *data in results)
+        [self.context deleteObject:data];
 }
 
 -(void)save
