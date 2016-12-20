@@ -10,6 +10,7 @@
 
 @interface NSObject(GWPXibLoader)
 
--(id)loadFromXib;//:(cl)
+-(id)load:(Class)ObjectClass
+  fromXib:(NSString *)name;
 
 @end
