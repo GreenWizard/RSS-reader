@@ -22,7 +22,7 @@
 @interface GWPDBController()<GWPNewsTableContextControllerParent, GWPRecieverControllerParent>
 
 @property (strong) NSManagedObjectContext *parentContext;
-@property (strong) NSMutableArray *recieverContextStorage;
+@property (strong) NSMutableDictionary *recieverContextStorage;
 
 @property (strong) NSManagedObjectModel *managedModel;
 @property (strong) NSPersistentStoreCoordinator *storeCoordinator;
@@ -65,7 +65,7 @@
     self.parentContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     self.parentContext.persistentStoreCoordinator = self.storeCoordinator;
     
-    self.recieverContextStorage = [[NSMutableArray alloc] initWithCapacity:0];
+    self.recieverContextStorage = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     NSManagedObjectContext *uiContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
     uiContext.parentContext = self.parentContext;
@@ -141,8 +141,11 @@
                        GWPRecieverCC *newCC = [[GWPRecieverCC alloc]initWithContext:context
                                                                    parentController:self];
                        newCC.rss = rss;
-                       [self.recieverContextStorage addObject:newCC];
-                       [newCC updateRSS];
+                       if(![self.recieverContextStorage objectForKey:rss.link])
+                       {
+                           [self.recieverContextStorage setObject:newCC forKey:rss.link];
+                           [newCC updateRSS];
+                       }
                    });
 }
 
@@ -164,7 +167,8 @@
 {
     [self contextController:controller
                         saveParentContext:self.parentContext];
-    [self.recieverContextStorage removeObject:controller];
+    NSURL *link = [(GWPRecieverCC *)controller rss].link;
+    [self.recieverContextStorage removeObjectForKey:link];
     NSLog(@"remaining recievers %lu", [self.recieverContextStorage count]);
     if(![self.recieverContextStorage count])
         NSLog(@"---------------------------");
