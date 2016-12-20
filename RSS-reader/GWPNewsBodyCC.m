@@ -21,7 +21,7 @@
     NSError *error = nil;
     NSArray *results = [self.context executeFetchRequest:request error:&error];    
     
-    GWPNewsData *data = [results objectAtIndex:0];
+    GWPNewsData *data = results.firstObject;
     if(!data.wasRead)
     {
         data.wasRead = YES;

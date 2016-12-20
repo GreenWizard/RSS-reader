@@ -49,7 +49,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GWPRSSListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RSSListCell" forIndexPath:indexPath];
     
-    GWPRSS *rss = [self.rssList objectAtIndex:indexPath.row];
+    GWPRSS *rss = self.rssList[indexPath.row];
     cell.currentRSS = rss;
     cell.delegate = self;
     

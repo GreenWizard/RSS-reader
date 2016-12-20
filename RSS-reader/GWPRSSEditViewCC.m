@@ -63,7 +63,7 @@
         return nil;
     }
     
-    return [results objectAtIndex:0];
+    return results.firstObject;
 }
 
 -(void)deleteNews:(GWPRSS *)rss
