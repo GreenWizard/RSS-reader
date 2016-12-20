@@ -6,30 +6,30 @@
 //  Copyright © 2016 User. All rights reserved.
 //
 
-#import "GWPDBControllerFabric.h"
+#import "GWPDBControllerFactory.h"
 #import "GWPDBController.h"
 
-@implementation GWPDBControllerFabric
+@implementation GWPDBControllerFactory
 
-+(id)getDBControllerForNewsTable
++(id)newsTableDBController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.newsTableCC;
 }
 
-+(id)getDBControllerForNewsBodyView
++(id)newsBodyViewDBController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.newsBodyCC;
 }
 
-+(id)getDBControllerForRSSTable
++(id)rssTableDBController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.rssTableCC;
 }
 
-+(id)getDBControllerForRSSEditView
++(id)rssEditViewDBController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.rssEditViewCC;

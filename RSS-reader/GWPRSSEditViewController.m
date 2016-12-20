@@ -7,7 +7,7 @@
 //
 
 #import "GWPRSSEditViewController.h"
-#import "GWPDBControllerFabric.h"
+#import "GWPDBControllerFactory.h"
 
 @interface GWPRSSEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *rssTitle;
@@ -42,21 +42,21 @@
        &&(self.rssLink.text.length > 0)
        && (self.rssTitle.text.length > 0))
     {
-        id<GWPDBControllerForRSSEditView> reciever = [GWPDBControllerFabric getDBControllerForRSSEditView];
+        id<GWPDBControllerForRSSEditView> controller = [GWPDBControllerFactory rssEditViewDBController];
         GWPRSS *newRSS = [GWPRSS createRSS:self.rssTitle.text
                                       link:[NSURL URLWithString:self.rssLink.text]
                                 unreadNews:0];
 
         if(self.rss)
-            [reciever editRSS:self.rss newRSS:newRSS];
+            [controller editRSS:self.rss newRSS:newRSS];
         else
-            [reciever addNewRSS:newRSS];
+            [controller addNewRSS:newRSS];
     }
     
     if([segue.identifier isEqualToString:@"AddRSS_delete"])
     {
-        id<GWPDBControllerForRSSEditView> reciever = [GWPDBControllerFabric getDBControllerForRSSEditView];
-        [reciever deleteRSS:self.rss];
+        id<GWPDBControllerForRSSEditView> controller = [GWPDBControllerFactory rssEditViewDBController];
+        [controller deleteRSS:self.rss];
     }
 }
 

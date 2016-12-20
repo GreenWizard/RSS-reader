@@ -12,11 +12,11 @@
 #import "GWPDBContollerForRSSTable.h"
 #import "GWPDBControllerForRSSEditView.h"
 
-@interface GWPDBControllerFabric : NSObject
+@interface GWPDBControllerFactory : NSObject
 
-+(id<GWPDBContollerForNewsTable>)getDBControllerForNewsTable;
-+(id<GWPDBContollerForRSSTable>)getDBControllerForRSSTable;
-+(id<GWPDBContollerForNewsBodyView>)getDBControllerForNewsBodyView;
-+(id<GWPDBControllerForRSSEditView>)getDBControllerForRSSEditView;
++(id<GWPDBContollerForNewsTable>)newsTableDBController;
++(id<GWPDBContollerForRSSTable>)rssTableDBController;
++(id<GWPDBContollerForNewsBodyView>)newsBodyViewDBController;
++(id<GWPDBControllerForRSSEditView>)rssEditViewDBController;
 
 @end

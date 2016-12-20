@@ -12,12 +12,12 @@
 #import "GWPRSSCell_ButtonAction.h"
 #import "GWPRSS.h"
 #import "GWPRSSListCell.h"
-#import "GWPDBControllerFabric.h"
+#import "GWPDBControllerFactory.h"
 
 @interface GWPRSSTableViewController ()<GWPRSSCell_ButtonAction, GWPDBControllerDelegate>
 
 @property (strong, nonatomic, readwrite) NSArray *rssList;
-@property (weak, readwrite) id<GWPDBContollerForRSSTable> reciever;
+@property (weak, readwrite) id<GWPDBContollerForRSSTable> controller;
 
 @end
 
@@ -28,10 +28,10 @@
     
     UINib *cellNib = [UINib nibWithNibName:@"GWPRSSNewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RSSListCell"];
-    self.reciever = [GWPDBControllerFabric getDBControllerForRSSTable];
+    self.controller = [GWPDBControllerFactory rssTableDBController];
     
-    self.reciever.delegate = self;
-    [self.reciever updateRSSList];
+    self.controller.delegate = self;
+    [self.controller updateRSSList];
     
 }
 
@@ -73,14 +73,14 @@
 
 -(void)dbControllerUpdateCompleted:(id)controller
 {
-    self.rssList = self.reciever.rssList;
+    self.rssList = self.controller.rssList;
     [self.tableView reloadData];
 }
 
 
 -(IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue
 {
-    [self.reciever updateRSSList];
+    [self.controller updateRSSList];
 }
 
  -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

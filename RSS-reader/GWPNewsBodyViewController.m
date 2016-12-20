@@ -7,7 +7,7 @@
 //
 
 #import "GWPNewsBodyViewController.h"
-#import "GWPDBControllerFabric.h"
+#import "GWPDBControllerFactory.h"
 
 @interface GWPNewsBodyViewController ()
 
@@ -23,7 +23,7 @@
     
     self.newsTitle.title = self.news.publicationDate;
     self.newsDetails.text = [NSString stringWithFormat:@"%@\n\n%@",self.news.title, self.news.details];
-    id<GWPDBContollerForNewsBodyView> controller = [GWPDBControllerFabric getDBControllerForNewsBodyView];
+    id<GWPDBContollerForNewsBodyView> controller = [GWPDBControllerFactory newsBodyViewDBController];
     [controller markNews:self.news];
 }
 

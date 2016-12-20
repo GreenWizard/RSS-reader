@@ -3,14 +3,14 @@
 #import "GWPNews.h"
 #import "GWPNewsTableViewCell.h"
 #import "GWPDBControllerDelegate.h"
-#import "GWPDBControllerFabric.h"
+#import "GWPDBControllerFactory.h"
 #import "GWPNewsBodyViewController.h"
 
 @interface GWPNewsTableViewController ()<GWPDBControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (strong, readwrite) NSArray *newsStorage;
-@property (weak, readwrite) id <GWPDBContollerForNewsTable> newsReciever;
+@property (weak, readwrite) id <GWPDBContollerForNewsTable> controller;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 @property (strong, nonatomic) UIBarButtonItem *refreshButtonStorage;
 
@@ -25,8 +25,8 @@
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
-    self.newsReciever = [GWPDBControllerFabric getDBControllerForNewsTable];
-    [self.newsReciever setDelegate:self];
+    self.controller = [GWPDBControllerFactory newsTableDBController];
+    [self.controller setDelegate:self];
     [self refreshClicked:self];
     
     
@@ -44,14 +44,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.newsReciever.newsList count];
+    return [self.controller.newsList count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GWPNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     
-    GWPNews *news = [self.newsReciever.newsList objectAtIndex:indexPath.row];
+    GWPNews *news = [self.controller.newsList objectAtIndex:indexPath.row];
     cell.currentNews = news;
     
     return cell;
@@ -101,7 +101,7 @@
 
 -(void)updateNews
 {
-    [self.newsReciever updateNews:self.currentRSS];
+    [self.controller updateNews:self.currentRSS];
 }
 
 #pragma mark - Navigation
@@ -118,7 +118,7 @@
 #pragma mark - Custom methods
 
 - (void)refreshNewsList{
-    self.newsStorage = self.newsReciever.newsList;
+    self.newsStorage = self.controller.newsList;
     [self.tableView reloadData];
 }
 
