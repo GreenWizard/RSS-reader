@@ -7,7 +7,7 @@
 //
 
 #import "GWPRecieverCC.h"
-#import "GWPNewsReciever.h"
+#import "GWPRSSParser.h"
 #import "GWPRecieverControllerParent.h"
 #import "GWPRSS.h"
 #import "GWPNews.h"
@@ -24,9 +24,9 @@
 
 -(void)updateRSS
 {
-    GWPNewsReciever *reciever = [[GWPNewsReciever alloc] init];
-    reciever.url = self.rss.link;
-    NSMutableDictionary *results = [[reciever recieveNews] mutableCopy];
+    GWPRSSParser *parser = [[GWPRSSParser alloc] init];
+    parser.urlToParse = self.rss.link;
+    NSMutableDictionary *results = [parser parse];
     
     if(results)
     {

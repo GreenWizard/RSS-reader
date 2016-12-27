@@ -24,10 +24,17 @@
 
 - (NSMutableDictionary *)parse
 {
+    @try
+    {
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.urlToParse];
         [xmlParser setDelegate:self];
         [xmlParser parse];
         return newsStorage;
+    }
+    @catch(NSException *exception)
+    {
+        return nil;
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict
