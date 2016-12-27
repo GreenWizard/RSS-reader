@@ -30,8 +30,10 @@
     
     if(results)
     {
+        GWPRSSData *rssData = [self requestRSSData];
+        
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
-        request.predicate = [NSPredicate predicateWithFormat:@"rssLink == %@", [self.rss.link absoluteString]];
+        request.predicate = [NSPredicate predicateWithFormat:@"rss == %@", rssData];
     
         NSError *error = nil;
         NSArray *requestResult = [self.context executeFetchRequest:request error:&error];
@@ -51,10 +53,10 @@
         
         for(GWPNewsData *data in oldNews)
             [self.context deleteObject:data];
+            
     
         for(NSURL *url in results)
-            [self insertNews:[results objectForKey:url]
-                 newsRSS:self.rss];
+            [self insertNews:[results objectForKey:url]];
     
         if([self.context hasChanges])
             [self.context performBlockAndWait:
@@ -70,18 +72,38 @@
 }
 
 -(void)insertNews:(GWPNews *)news
-                   newsRSS:(GWPRSS *)rss
 {
-    GWPNewsData *newObject = [NSEntityDescription insertNewObjectForEntityForName:@"News"
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
+    request.predicate = [NSPredicate predicateWithFormat:@"link == %@", [self.rss.link absoluteString]];
+    NSError *error = nil;
+    NSArray *requestResult = [self.context executeFetchRequest:request error:&error];
+    GWPRSSData *rssData = requestResult.firstObject;
+
+    if(rssData)
+    {
+        GWPNewsData *newsObject = [NSEntityDescription insertNewObjectForEntityForName:@"News"
                                                           inManagedObjectContext:self.context];
-    newObject.title = news.title;
-    newObject.link = [news.link absoluteString];
-    newObject.details = news.details;
-    newObject.pubDate = news.publicationDate;
-    newObject.wasRead = NO;
-    newObject.rssLink = [rss.link absoluteString];
+        newsObject.title = news.title;
+        newsObject.link = [news.link absoluteString];
+        newsObject.details = news.details;
+        newsObject.pubDate = news.publicationDate;
+        newsObject.wasRead = NO;
+        newsObject.rss = rssData;
     
-    [self.context insertObject:newObject];
+        [self.context insertObject:newsObject];
+        [rssData addNewsObject:newsObject];
+    }
+}
+
+-(GWPRSSData *)requestRSSData
+{
+    NSFetchRequest *rssRequest = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
+    rssRequest.predicate = [NSPredicate predicateWithFormat:@"link == %@", [self.rss.link absoluteString]];
+    
+    NSError *error = nil;
+    NSArray *requestResult = [self.context executeFetchRequest:rssRequest error:&error];
+    
+    return requestResult.firstObject;
 }
 
 @end

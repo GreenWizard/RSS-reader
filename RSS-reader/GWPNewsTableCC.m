@@ -34,8 +34,10 @@
         [self.parentController contextController:self
                               forceUpdateThisRSS:rss];
         
-        self.request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
-        self.request.predicate = [NSPredicate predicateWithFormat:@"rssLink == %@", [rss.link absoluteString]];
+        GWPRSSData *rssData = [self rssData:rss];
+        
+        self.request = [GWPNewsData fetchRequest];
+        self.request.predicate = [NSPredicate predicateWithFormat:@"rss == %@", rssData];
         [self updateNewsList];
     }
     @catch(NSError *error)
@@ -77,6 +79,16 @@
                publicationDate:data.pubDate
                        details:data.details
                           link:[NSURL URLWithString:data.link]];
+}
+
+-(GWPRSSData *)rssData:(GWPRSS *)rss
+{
+    NSFetchRequest *request = [GWPRSSData fetchRequest];
+    request.predicate = [NSPredicate predicateWithFormat:@"link == %@", [rss.link absoluteString]];
+    
+    NSError *error = nil;
+    NSArray *results = [self.context executeFetchRequest:request error:&error];
+    return results.firstObject;
 }
 
 @end

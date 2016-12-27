@@ -25,6 +25,7 @@
 		3FAEE4DE1DEDE52B00A67BB2 /* GWPRSSListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DD1DEDE52B00A67BB2 /* GWPRSSListCell.m */; };
 		3FAEE4E01DEDE54D00A67BB2 /* GWPRSSNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */; };
 		3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */; };
+		3FB08EF01E12CF8D003F1720 /* GWPRSSData+Requests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB08EEF1E12CF8D003F1720 /* GWPRSSData+Requests.m */; };
 		CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */; };
 		CEA15A611DDC3F56000533AF /* GWPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */; };
 		CEA15A641DDC489F000533AF /* GWPNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */; };
@@ -78,6 +79,8 @@
 		3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPRSSNewsCell.xib; sourceTree = "<group>"; };
 		3FAEE4E11DEDE6C800A67BB2 /* GWPRSSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSTableViewController.h; sourceTree = "<group>"; };
 		3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSTableViewController.m; sourceTree = "<group>"; };
+		3FB08EEE1E12CF8D003F1720 /* GWPRSSData+Requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GWPRSSData+Requests.h"; sourceTree = "<group>"; };
+		3FB08EEF1E12CF8D003F1720 /* GWPRSSData+Requests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GWPRSSData+Requests.m"; sourceTree = "<group>"; };
 		CE5C7F191DDDE15100E0943A /* GWPNewsBodyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsBodyViewController.h; sourceTree = "<group>"; };
 		CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPNewsBodyViewController.m; sourceTree = "<group>"; };
 		CEA15A5F1DDC3F56000533AF /* GWPNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsTableViewController.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				3F6B4E5A1DEED18B000D25BD /* GWPRSS.m */,
 				CEA15A651DDC4E53000533AF /* GWPNews.h */,
 				CEA15A661DDC4E53000533AF /* GWPNews.m */,
+				3FB08EEE1E12CF8D003F1720 /* GWPRSSData+Requests.h */,
+				3FB08EEF1E12CF8D003F1720 /* GWPRSSData+Requests.m */,
 			);
 			name = DataPacks;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				3F72B5F41DF842D1008286BA /* DB.xcdatamodeld in Sources */,
 				3F8130071DF6F29A001A0569 /* GWPDBController.m in Sources */,
 				3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */,
+				3FB08EF01E12CF8D003F1720 /* GWPRSSData+Requests.m in Sources */,
 				3F814D8D1DE4A9DE0056F9FF /* GWPRSSParser.m in Sources */,
 				CEEF06B01DDA0D680069F9B6 /* AppDelegate.m in Sources */,
 				3F9B05731DF2FD0F00E1EA8C /* GWPRSSEditViewController.m in Sources */,

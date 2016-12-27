@@ -17,7 +17,7 @@
     GWPRSSData *object = [self findObject:rss];
     if(object)
     {
-        [self deleteNews:rss];
+        //[self deleteNews:rss];
         [self.context deleteObject:object];
         [self save];
     }
