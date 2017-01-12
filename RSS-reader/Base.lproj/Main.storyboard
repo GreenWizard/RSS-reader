@@ -118,14 +118,8 @@
                                 <segue destination="Q3B-eL-Mkw" kind="unwind" unwindAction="unwindForSegue:" id="1Ux-46-Z73"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="refresh" id="fYG-WC-paU">
-                            <connections>
-                                <action selector="refreshClicked:" destination="b32-hx-91J" id="0eT-Tg-Czc"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="refreshButton" destination="fYG-WC-paU" id="nFp-FD-1Y0"/>
                         <segue destination="kOR-ez-6ZG" kind="show" identifier="NewsBodySegue" id="amk-RR-Icc"/>
                     </connections>
                 </tableViewController>

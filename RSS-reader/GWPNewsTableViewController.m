@@ -11,9 +11,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (strong, readwrite) NSArray *newsStorage;
 @property (weak, readwrite) id <GWPNewsListControllerProtocol> controller;
-@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
-@property (strong, nonatomic) UIBarButtonItem *refreshButtonStorage;
-
+@property (strong, nonatomic) UIRefreshControl *refreshControle;
 
 @end
 
@@ -25,10 +23,14 @@
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshClicked:) forControlEvents:UIControlEventValueChanged];
+
+    
     self.controller = [GWPDBControllerFactory newsListController];
     [self.controller setDelegate:self];
     [self refreshClicked:self];
-    
 }
 
 #pragma mark - Table view data source
@@ -51,12 +53,6 @@
     return cell;
 }
 
--(UIActivityIndicatorView *)indicatorView
-{
-    if(!_indicatorView)
-        _indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    return _indicatorView;
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     id cell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -80,17 +76,12 @@
     [self refreshClicked:self];
 }
 
-- (IBAction)refreshClicked:(id)sender {
-    
-    if(self.refreshButton.enabled)
-    {
-        self.refreshButton.enabled = NO;
-        self.navigationItem.title = self.currentRSS.title;
-        NSThread *tread = [[NSThread alloc]initWithTarget:self
-                                                 selector:@selector(updateNews)
-                                                  object:nil];
-        [tread start];
-    }
+- (IBAction)refreshClicked:(id)sender
+{
+       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                                                ^{
+                                                    [self updateNews];
+                                                });
 }
 
 -(void)updateNews
@@ -120,22 +111,14 @@
 
 -(void)dbControllerUpdateStarded:(id)controller
 {
-        dispatch_async(dispatch_get_main_queue(), ^{
-        [self.indicatorView startAnimating];
-        self.refreshButton.enabled = NO;
-        self.refreshButtonStorage = self.refreshButton;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                  initWithCustomView:self.indicatorView];
-    });
+
 }
 
 -(void)dbControllerUpdateCompleted:(id)controller
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self refreshNewsList];
-        [self.indicatorView stopAnimating];
-        self.refreshButton.enabled = YES;
-        self.navigationItem.rightBarButtonItem = self.refreshButton;
+        [self.refreshControl endRefreshing];
     });
     
 
@@ -144,10 +127,8 @@
 -(void)dbControllerUpdateFailed:(id)controller
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.indicatorView stopAnimating];
-        self.refreshButton.enabled = YES;
-        self.navigationItem.rightBarButtonItem = self.refreshButtonStorage;
         [self showRefreshError];
+        [self.refreshControl endRefreshing];
     });
 
 }
