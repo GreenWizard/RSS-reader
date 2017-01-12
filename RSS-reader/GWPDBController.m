@@ -8,18 +8,18 @@
 
 #import "GWPDBController.h"
 #import <CoreData/CoreData.h>
-#import "GWPNewsTableCC.h"
-#import "GWPRSSTableCC.h"
-#import "GWPRSSEditViewCC.h"
-#import "GWPNewsBodyCC.h"
-#import "GWPRecieverCC.h"
+#import "GWPNewsListController.h"
+#import "GWPRSSListController.h"
+#import "GWPRSSEditController.h"
+#import "GWPNewsMarkerController.h"
+#import "GWPNewsRecieverController.h"
 #import "GWPRSSData+CoreDataClass.h"
-#import "GWPNewsTableContextControllerParent.h"
+#import "GWPNewsListControllerParent.h"
 #import "GWPRecieverControllerParent.h"
 #import "GWPRSS.h"
 #import "GWPRSSData+CoreDataClass.h"
 
-@interface GWPDBController()<GWPNewsTableContextControllerParent, GWPRecieverControllerParent>
+@interface GWPDBController()<GWPNewsListControllerParent, GWPRecieverControllerParent>
 
 @property (strong) NSManagedObjectContext *parentContext;
 @property (strong) NSMutableDictionary *recieverContextStorage;
@@ -71,16 +71,16 @@
     uiContext.parentContext = self.parentContext;
 
         
-    self.newsTableCC = [[GWPNewsTableCC alloc] initWithContext:uiContext
+    self.newsTableCC = [[GWPNewsListController alloc] initWithContext:uiContext
                                               parentController:self];
 
-    self.rssTableCC =  [[GWPRSSTableCC alloc] initWithContext:uiContext
+    self.rssTableCC =  [[GWPRSSListController alloc] initWithContext:uiContext
                                              parentController:self];
 
-    self.rssEditViewCC = [[GWPRSSEditViewCC alloc]initWithContext:uiContext
+    self.rssEditViewCC = [[GWPRSSEditController alloc]initWithContext:uiContext
                                                  parentController:self];
     
-    self.newsBodyCC = [[GWPNewsBodyCC alloc]initWithContext:uiContext
+    self.newsBodyCC = [[GWPNewsMarkerController alloc]initWithContext:uiContext
                                            parentController:self];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -138,7 +138,7 @@
                        NSManagedObjectContext *context = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSPrivateQueueConcurrencyType];
                        context.parentContext = self.parentContext;
                        
-                       GWPRecieverCC *newCC = [[GWPRecieverCC alloc]initWithContext:context
+                       GWPNewsRecieverController *newCC = [[GWPNewsRecieverController alloc]initWithContext:context
                                                                    parentController:self];
                        newCC.rss = rss;
                        if(![self.recieverContextStorage objectForKey:rss.link])
@@ -167,7 +167,7 @@
 {
     [self contextController:controller
                         saveParentContext:self.parentContext];
-    NSURL *link = [(GWPRecieverCC *)controller rss].link;
+    NSURL *link = [(GWPNewsRecieverController *)controller rss].link;
     [self.recieverContextStorage removeObjectForKey:link];
     NSLog(@"remaining recievers %lu", [self.recieverContextStorage count]);
     if(![self.recieverContextStorage count])

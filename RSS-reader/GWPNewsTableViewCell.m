@@ -10,11 +10,10 @@
 
 @interface GWPNewsTableViewCell()
 
+@property (weak, nonatomic, readwrite) IBOutlet UILabel *unreadIndicator;
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *newsTitle;
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *publicationDate;
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *newsDetails;
-
-
 @end
 
 @implementation GWPNewsTableViewCell
@@ -24,6 +23,7 @@
     self.newsTitle.text = currentNews.title;
     self.publicationDate.text = currentNews.publicationDate;
     self.newsDetails.text = currentNews.details;
+    self.unreadIndicator.hidden = !currentNews.isUnread;
     _currentNews = currentNews;
 }
 

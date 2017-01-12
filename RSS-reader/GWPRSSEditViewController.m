@@ -42,7 +42,7 @@
        &&(self.rssLink.text.length > 0)
        && (self.rssTitle.text.length > 0))
     {
-        id<GWPDBControllerForRSSEditView> controller = [GWPDBControllerFactory rssEditViewDBController];
+        id<GWPEditControllerProtocol> controller = [GWPDBControllerFactory editController];
         GWPRSS *newRSS = [GWPRSS createRSS:self.rssTitle.text
                                       link:[NSURL URLWithString:self.rssLink.text]
                                 unreadNews:0];
@@ -51,12 +51,6 @@
             [controller editRSS:self.rss newRSS:newRSS];
         else
             [controller addNewRSS:newRSS];
-    }
-    
-    if([segue.identifier isEqualToString:@"AddRSS_delete"])
-    {
-        id<GWPDBControllerForRSSEditView> controller = [GWPDBControllerFactory rssEditViewDBController];
-        [controller deleteRSS:self.rss];
     }
 }
 

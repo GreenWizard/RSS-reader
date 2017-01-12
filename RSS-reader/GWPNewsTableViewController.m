@@ -10,7 +10,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (strong, readwrite) NSArray *newsStorage;
-@property (weak, readwrite) id <GWPDBContollerForNewsTable> controller;
+@property (weak, readwrite) id <GWPNewsListControllerProtocol> controller;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 @property (strong, nonatomic) UIBarButtonItem *refreshButtonStorage;
 
@@ -25,10 +25,9 @@
     UINib *cellNib = [UINib nibWithNibName:@"NewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"NewsCell"];
     
-    self.controller = [GWPDBControllerFactory newsTableDBController];
+    self.controller = [GWPDBControllerFactory newsListController];
     [self.controller setDelegate:self];
     [self refreshClicked:self];
-    
     
 }
 

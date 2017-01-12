@@ -11,25 +11,25 @@
 
 @implementation GWPDBControllerFactory
 
-+(id)newsTableDBController
++(id)newsListController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.newsTableCC;
 }
 
-+(id)newsBodyViewDBController
++(id)newsMarkerController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.newsBodyCC;
 }
 
-+(id)rssTableDBController
++(id)rssListController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.rssTableCC;
 }
 
-+(id)rssEditViewDBController
++(id)editController
 {
     GWPDBController *controller = [GWPDBController getInstance];
     return controller.rssEditViewCC;

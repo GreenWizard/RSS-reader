@@ -23,7 +23,7 @@
     
     self.newsTitle.title = self.news.publicationDate;
     self.newsDetails.text = [NSString stringWithFormat:@"%@\n\n%@",self.news.title, self.news.details];
-    id<GWPDBContollerForNewsBodyView> controller = [GWPDBControllerFactory newsBodyViewDBController];
+    id<GWPNewsMarkerControllerProtocol> controller = [GWPDBControllerFactory newsMarkerController];
     [controller markNews:self.news];
 }
 

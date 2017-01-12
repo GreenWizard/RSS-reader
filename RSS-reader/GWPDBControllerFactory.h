@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GWPDBContollerForNewsTable.h"
-#import "GWPDBContollerForNewsBodyView.h"
-#import "GWPDBContollerForRSSTable.h"
-#import "GWPDBControllerForRSSEditView.h"
+#import "GWPNewsListControllerProtocol.h"
+#import "GWPNewsMarkerControllerProtocol.h"
+#import "GWPRSSListControllerProtocol.h"
+#import "GWPEditControllerProtocol.h"
 
 @interface GWPDBControllerFactory : NSObject
 
-+(id<GWPDBContollerForNewsTable>)newsTableDBController;
-+(id<GWPDBContollerForRSSTable>)rssTableDBController;
-+(id<GWPDBContollerForNewsBodyView>)newsBodyViewDBController;
-+(id<GWPDBControllerForRSSEditView>)rssEditViewDBController;
++(id<GWPNewsListControllerProtocol>)newsListController;
++(id<GWPRSSListControllerProtocol>)rssListController;
++(id<GWPNewsMarkerControllerProtocol>)newsMarkerController;
++(id<GWPEditControllerProtocol>)editController;
 
 @end

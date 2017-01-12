@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ge2-fg-s1E" id="6ou-v5-VUc">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sy-0S-EtX">
@@ -34,10 +34,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-QI-cDk">
-                        <rect key="frame" x="8" y="29" width="359" height="40"/>
+                        <rect key="frame" x="8" y="29" width="300" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="WOi-9H-hL6"/>
-                            <constraint firstAttribute="width" constant="359" id="aX7-ZQ-cEd"/>
+                            <constraint firstAttribute="width" constant="300" id="aX7-ZQ-cEd"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment content="News ">
@@ -63,6 +63,13 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unread" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-vz-GkN">
+                        <rect key="frame" x="325" y="35" width="42" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8Sy-0S-EtX" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="Eyj-3J-29Q"/>
@@ -77,7 +84,9 @@
                 <outlet property="newsDetails" destination="VOw-QI-cDk" id="g3r-al-O3T"/>
                 <outlet property="newsTitle" destination="8Sy-0S-EtX" id="FOl-7w-jHt"/>
                 <outlet property="publicationDate" destination="QGE-gm-AoJ" id="Nl5-AS-pcr"/>
+                <outlet property="unreadIndicator" destination="Jzc-vz-GkN" id="fhN-o7-Qxs"/>
             </connections>
+            <point key="canvasLocation" x="25.5" y="52"/>
         </tableViewCell>
     </objects>
 </document>

@@ -8,6 +8,7 @@
 
 #import "GWPRSSTableViewController.h"
 #import "GWPNewsTableViewController.h"
+#import "GWPContextController.h"
 #import "GWPRSSEditViewController.h"
 #import "GWPRSSCell_ButtonAction.h"
 #import "GWPRSS.h"
@@ -17,7 +18,7 @@
 @interface GWPRSSTableViewController ()<GWPRSSCell_ButtonAction, GWPDBControllerDelegate>
 
 @property (strong, nonatomic, readwrite) NSArray *rssList;
-@property (weak, readwrite) id<GWPDBContollerForRSSTable> controller;
+@property (weak, readwrite) GWPContextController<GWPRSSListControllerProtocol> *controller;
 
 @end
 
@@ -26,9 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
     UINib *cellNib = [UINib nibWithNibName:@"GWPRSSNewsCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"RSSListCell"];
-    self.controller = [GWPDBControllerFactory rssTableDBController];
+    self.controller = [GWPDBControllerFactory rssListController];
     
     self.controller.delegate = self;
     [self.controller updateRSSList];
@@ -54,6 +57,15 @@
     cell.delegate = self;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        GWPContextController<GWPEditControllerProtocol> *editController = [GWPDBControllerFactory editController];
+        GWPRSS *rss = self.rssList[indexPath.row];
+        [editController deleteRSS:rss];
+    }
 }
 
 -(void)rssCell:(GWPRSSListCell *)cell editButtonClicked:(UIButton *)button
