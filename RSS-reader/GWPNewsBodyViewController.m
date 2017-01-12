@@ -12,7 +12,7 @@
 @interface GWPNewsBodyViewController ()
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *newsTitle;
-@property (weak, nonatomic) IBOutlet UITextView *newsDetails;
+@property (weak, nonatomic) IBOutlet UIWebView *newsDetails;
 
 @end
 
@@ -22,7 +22,8 @@
     [super viewDidLoad];
     
     self.newsTitle.title = self.news.publicationDate;
-    self.newsDetails.text = [NSString stringWithFormat:@"%@\n\n%@",self.news.title, self.news.details];
+    [self.newsDetails loadHTMLString:self.news.details
+                             baseURL:self.news.link];
     id<GWPNewsMarkerControllerProtocol> controller = [GWPDBControllerFactory newsMarkerController];
     [controller markNews:self.news];
 }
