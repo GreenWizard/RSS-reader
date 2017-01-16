@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEJ-tI-S4Q">
-                        <rect key="frame" x="8" y="8" width="301" height="39"/>
+                        <rect key="frame" x="62" y="8" width="247" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -47,10 +47,15 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="92u-Dg-WEy">
+                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="editButton" destination="uK0-aR-DuY" id="wP9-8F-ru8"/>
+                <outlet property="image" destination="92u-Dg-WEy" id="ETg-WE-xnm"/>
                 <outlet property="title" destination="xEJ-tI-S4Q" id="k9X-jA-yiE"/>
                 <outlet property="unreadMassages" destination="GW8-QI-vbh" id="mCu-Ze-xf5"/>
             </connections>

@@ -11,13 +11,13 @@
 @interface GWPNews : NSObject <NSCopying>
 
 @property (copy, nullable, nonatomic) NSString *title;
-@property (copy, nullable, nonatomic) NSString *publicationDate;
+@property (copy, nullable, nonatomic) NSDate *publicationDate;
 @property (copy, nullable, nonatomic) NSString *details;
 @property (copy, nonnull, nonatomic) NSURL *link;
 @property (readwrite) BOOL isUnread;
 
 +(nonnull GWPNews *)createNews:(nullable NSString *)title
-                    publicationDate:(nullable NSString *)pubDate
+                    publicationDate:(nullable NSDate *)pubDate
                             details:(nullable NSString *)details
                                link:(nonnull NSURL *)link;
 

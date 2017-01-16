@@ -21,8 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.newsTitle.title = self.news.publicationDate;
-    [self.newsDetails loadHTMLString:[NSString stringWithFormat:@"%@ \n\n %@",self.news.title , self.news.details]
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd.MM.yyyy HH:mm"];
+    
+    self.newsTitle.title = [format stringFromDate:self.news.publicationDate];
+    [self.newsDetails loadHTMLString:[NSString stringWithFormat:@"%@. <br/> %@",self.news.title , self.news.details]
                              baseURL:self.news.link];
     id<GWPNewsMarkerControllerProtocol> controller = [GWPDBControllerFactory newsMarkerController];
     [controller markNews:self.news];

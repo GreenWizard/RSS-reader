@@ -75,7 +75,7 @@
 -(GWPNews *)createNews
 {
     return [GWPNews createNews:[newsDictionary objectForKey:@"title"]
-                    publicationDate:[newsDictionary objectForKey:@"pubDate"]
+                    publicationDate:[self createDateWithString:[newsDictionary objectForKey:@"pubDate"]]
                             details:[newsDictionary objectForKey:@"description"]
                           link:[NSURL URLWithString:[newsDictionary objectForKey:@"link"]]];
 }
@@ -90,5 +90,29 @@
         [newsDictionary setObject:itemString forKey:elementName];
     }
 }
+
+-(NSDate *)createDateWithString:(NSString *)string
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    //formatter.dateStyle = NSDateFormatterMediumStyle;
+    //formatter.timeStyle = NSDateFormatterNoStyle;
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en-US"]];
+    
+    NSString *mainFormat = @"EEE, dd MMM yyyy HH:mm:ss ZZ";
+    NSString *alternativeFormat = @"dd MMM yyyy HH:mm:ss ZZ";
+    
+    formatter.dateFormat = mainFormat;
+    NSDate *date = [formatter dateFromString:string];
+    
+    if(date)
+        return date;
+    
+    formatter.dateFormat = alternativeFormat;
+    date =[formatter dateFromString:string];
+    return date;
+}
+
+
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F6B4E5B1DEED18B000D25BD /* GWPRSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B4E5A1DEED18B000D25BD /* GWPRSS.m */; };
 		3F72B5F41DF842D1008286BA /* DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F72B5F21DF842D1008286BA /* DB.xcdatamodeld */; };
+		3F76C4231E27DD150075E739 /* GWPRSSImageExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F76C4221E27DD150075E739 /* GWPRSSImageExtractor.m */; };
 		3F7B2A0B1DFAFCE2008B699D /* GWPRSSListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B2A0A1DFAFCE2008B699D /* GWPRSSListController.m */; };
 		3F7B2A0F1DFB0528008B699D /* GWPRSSEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B2A0E1DFB0528008B699D /* GWPRSSEditController.m */; };
 		3F8130071DF6F29A001A0569 /* GWPDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8130061DF6F29A001A0569 /* GWPDBController.m */; };
@@ -44,6 +45,8 @@
 		3F6B4E691DEEF4CC000D25BD /* GWPRSSListControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPRSSListControllerProtocol.h; sourceTree = "<group>"; };
 		3F7254CC1DE5D7FB00893BA7 /* GWPDBControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPDBControllerDelegate.h; sourceTree = "<group>"; };
 		3F72B5F31DF842D1008286BA /* DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DB.xcdatamodel; sourceTree = "<group>"; };
+		3F76C4211E27DD150075E739 /* GWPRSSImageExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSImageExtractor.h; sourceTree = "<group>"; };
+		3F76C4221E27DD150075E739 /* GWPRSSImageExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSImageExtractor.m; sourceTree = "<group>"; };
 		3F7B2A081DFACD18008B699D /* GWPContextControllerParent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GWPContextControllerParent.h; sourceTree = "<group>"; };
 		3F7B2A091DFAFCE2008B699D /* GWPRSSListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPRSSListController.h; sourceTree = "<group>"; };
 		3F7B2A0A1DFAFCE2008B699D /* GWPRSSListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSListController.m; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				3F9B05741DF2FD1600E1EA8C /* RSSEdit */,
 				3F6B4E5F1DEEDA51000D25BD /* NewsList */,
 				3F6B4E601DEEDA68000D25BD /* NewsBody */,
+				3F76C4211E27DD150075E739 /* GWPRSSImageExtractor.h */,
+				3F76C4221E27DD150075E739 /* GWPRSSImageExtractor.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				CEA15A641DDC489F000533AF /* GWPNewsTableViewCell.m in Sources */,
 				3FAEE4DE1DEDE52B00A67BB2 /* GWPRSSListCell.m in Sources */,
 				3F72B5F41DF842D1008286BA /* DB.xcdatamodeld in Sources */,
+				3F76C4231E27DD150075E739 /* GWPRSSImageExtractor.m in Sources */,
 				3F8130071DF6F29A001A0569 /* GWPDBController.m in Sources */,
 				3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */,
 				3FB08EF01E12CF8D003F1720 /* GWPRSSData+Requests.m in Sources */,

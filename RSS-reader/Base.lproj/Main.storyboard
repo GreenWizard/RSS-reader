@@ -82,7 +82,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="dzh-0m-ANs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ur0-Dk-r3y"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ur0-Dk-r3y">
+                            <connections>
+                                <segue destination="blt-Di-TSb" kind="unwind" identifier="Cancel" unwindAction="unwindForSegue:" id="UCl-fy-r2m"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOC-IT-3GI">
                             <connections>
                                 <segue destination="blt-Di-TSb" kind="unwind" identifier="AddRSS_save" unwindAction="unwindForSegue:" id="7nn-uC-fnX"/>

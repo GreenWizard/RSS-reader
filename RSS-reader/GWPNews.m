@@ -15,7 +15,7 @@
 @implementation GWPNews
 
 +(nonnull GWPNews *)createNews:(nullable NSString *)title
-                    publicationDate:(nullable NSString *)pubDate
+                    publicationDate:(nullable NSDate *)pubDate
                             details:(nullable NSString *)details
                                link:(nonnull NSURL *)link
 {

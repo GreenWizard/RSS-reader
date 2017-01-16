@@ -7,12 +7,14 @@
 //
 
 #import "GWPRSSListCell.h"
+#import "GWPRSSImageExtractor.h"
 
 @interface GWPRSSListCell()
 
 @property (weak, nonatomic, readwrite) IBOutlet UILabel *title;
 @property (weak, nonatomic, readwrite) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UILabel *unreadMassages;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 
 @end
@@ -29,6 +31,9 @@
     _currentRSS = currentRSS;
     self.title.text = currentRSS.title;
     NSNumber *unreadNews = [NSNumber numberWithInteger:currentRSS.unreadNews];
+    GWPRSSImageExtractor *extractor = [GWPRSSImageExtractor initWithURL:self.currentRSS.link];
+    UIImage *tmpImage = extractor.image;
+    self.image.image = tmpImage;
     if(currentRSS.unreadNews)
         self.unreadMassages.text = [NSString stringWithFormat:@"%d", [unreadNews intValue]];
     else
