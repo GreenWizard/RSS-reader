@@ -14,30 +14,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ge2-fg-s1E" id="6ou-v5-VUc">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sy-0S-EtX">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sy-0S-EtX">
                         <rect key="frame" x="8" y="6" width="273" height="56"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="56" id="IQa-eT-K6b"/>
-                            <constraint firstAttribute="width" constant="273" id="hJ0-fe-dYo"/>
-                        </constraints>
                         <attributedString key="attributedText">
                             <fragment content="_________________________________">
                                 <attributes>
                                     <font key="NSFont" size="13" name="Arial-BoldMT"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-gm-AoJ">
-                        <rect key="frame" x="289" y="6" width="78" height="36"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGE-gm-AoJ">
+                        <rect key="frame" x="325" y="6" width="43" height="36"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="78" id="BfF-1S-hvK"/>
-                            <constraint firstAttribute="height" constant="36" id="rX2-cN-qRf"/>
+                            <constraint firstAttribute="width" constant="70" id="M1j-M5-yAS"/>
+                            <constraint firstAttribute="height" constant="35" id="v9y-oU-31e"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment content="Date">
@@ -49,19 +45,26 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unread" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-vz-GkN">
-                        <rect key="frame" x="325" y="35" width="42" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Unread" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-vz-GkN">
+                        <rect key="frame" x="326" y="44" width="42" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="EFk-LV-uDS"/>
+                            <constraint firstAttribute="width" constant="70" id="qcw-8t-WMU"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="Eyj-3J-29Q"/>
-                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="6" id="NAd-B4-Sci"/>
-                    <constraint firstAttribute="trailing" secondItem="QGE-gm-AoJ" secondAttribute="trailing" constant="8" id="Uhl-LW-SFt"/>
-                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leading" constant="8" id="mfK-wG-cME"/>
+                    <constraint firstAttribute="bottom" secondItem="8Sy-0S-EtX" secondAttribute="bottom" constant="8" id="0lB-gi-Duc"/>
+                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="8" id="7xD-b8-coD"/>
+                    <constraint firstAttribute="trailing" secondItem="QGE-gm-AoJ" secondAttribute="trailing" constant="8" id="GB0-px-IQZ"/>
+                    <constraint firstAttribute="trailing" secondItem="Jzc-vz-GkN" secondAttribute="trailing" constant="8" id="OLh-aH-sbn"/>
+                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="leading" secondItem="6ou-v5-VUc" secondAttribute="leading" constant="8" id="Of6-8p-lu9"/>
+                    <constraint firstAttribute="bottom" secondItem="Jzc-vz-GkN" secondAttribute="bottom" constant="8" id="U40-xx-R9K"/>
+                    <constraint firstItem="QGE-gm-AoJ" firstAttribute="leading" secondItem="8Sy-0S-EtX" secondAttribute="trailing" constant="75" id="jfw-S7-wAI"/>
+                    <constraint firstItem="8Sy-0S-EtX" firstAttribute="top" secondItem="6ou-v5-VUc" secondAttribute="top" constant="8" id="msE-1l-ZXe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

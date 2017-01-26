@@ -12,7 +12,6 @@
 @interface GWPRSSEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *rssTitle;
 @property (weak, nonatomic) IBOutlet UITextField *rssLink;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
@@ -24,13 +23,10 @@
     self.rssTitle.text = self.rss.title;
     self.rssLink.text = [self.rss.link absoluteString];
     
-    if(!self.rss)
-    {
-        self.deleteButton.enabled = NO;
-        [self.deleteButton setHidden:YES];
-    }
-    
-    
+    if(self.rss)
+        self.navigationItem.title = self.rss.title;
+    else
+        self.navigationItem.title = @"Add new RSS";
 }
 
 
