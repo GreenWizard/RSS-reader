@@ -43,7 +43,7 @@
     @catch(NSException *exception)
     {
     }
-    return nil;
+    return [UIImage imageNamed:@"rss.png"];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict
