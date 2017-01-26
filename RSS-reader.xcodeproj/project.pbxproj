@@ -27,6 +27,7 @@
 		3FAEE4E01DEDE54D00A67BB2 /* GWPRSSNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAEE4DF1DEDE54D00A67BB2 /* GWPRSSNewsCell.xib */; };
 		3FAEE4E31DEDE6C800A67BB2 /* GWPRSSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */; };
 		3FB08EF01E12CF8D003F1720 /* GWPRSSData+Requests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB08EEF1E12CF8D003F1720 /* GWPRSSData+Requests.m */; };
+		3FD4EF241E3A4199006354FB /* GWPBackgroundFetchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4EF231E3A4199006354FB /* GWPBackgroundFetchController.m */; };
 		CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */; };
 		CEA15A611DDC3F56000533AF /* GWPNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A601DDC3F56000533AF /* GWPNewsTableViewController.m */; };
 		CEA15A641DDC489F000533AF /* GWPNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA15A631DDC489F000533AF /* GWPNewsTableViewCell.m */; };
@@ -84,6 +85,8 @@
 		3FAEE4E21DEDE6C800A67BB2 /* GWPRSSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPRSSTableViewController.m; sourceTree = "<group>"; };
 		3FB08EEE1E12CF8D003F1720 /* GWPRSSData+Requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GWPRSSData+Requests.h"; sourceTree = "<group>"; };
 		3FB08EEF1E12CF8D003F1720 /* GWPRSSData+Requests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GWPRSSData+Requests.m"; sourceTree = "<group>"; };
+		3FD4EF221E3A4199006354FB /* GWPBackgroundFetchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPBackgroundFetchController.h; sourceTree = "<group>"; };
+		3FD4EF231E3A4199006354FB /* GWPBackgroundFetchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPBackgroundFetchController.m; sourceTree = "<group>"; };
 		CE5C7F191DDDE15100E0943A /* GWPNewsBodyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsBodyViewController.h; sourceTree = "<group>"; };
 		CE5C7F1A1DDDE15100E0943A /* GWPNewsBodyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPNewsBodyViewController.m; sourceTree = "<group>"; };
 		CEA15A5F1DDC3F56000533AF /* GWPNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPNewsTableViewController.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				3F9896381DF9A9DE00A2F87F /* ContextControllers */,
 				3F8130051DF6F29A001A0569 /* GWPDBController.h */,
 				3F8130061DF6F29A001A0569 /* GWPDBController.m */,
+				3FD4EF221E3A4199006354FB /* GWPBackgroundFetchController.h */,
+				3FD4EF231E3A4199006354FB /* GWPBackgroundFetchController.m */,
 				3F9896311DF9A49900A2F87F /* GWPDBControllerFactory.h */,
 				3F9896321DF9A49900A2F87F /* GWPDBControllerFactory.m */,
 			);
@@ -366,6 +371,9 @@
 						DevelopmentTeam = 2S7BBM2RW4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.WAC = {
 								enabled = 0;
 							};
@@ -425,6 +433,7 @@
 				3FB08EF01E12CF8D003F1720 /* GWPRSSData+Requests.m in Sources */,
 				3F814D8D1DE4A9DE0056F9FF /* GWPRSSParser.m in Sources */,
 				CEEF06B01DDA0D680069F9B6 /* AppDelegate.m in Sources */,
+				3FD4EF241E3A4199006354FB /* GWPBackgroundFetchController.m in Sources */,
 				3F9B05731DF2FD0F00E1EA8C /* GWPRSSEditViewController.m in Sources */,
 				CE5C7F1B1DDDE15100E0943A /* GWPNewsBodyViewController.m in Sources */,
 				3F815C081DE898FF005D03D7 /* GWPXibLoadCategory.m in Sources */,

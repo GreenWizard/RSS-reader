@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GWPBackgroundFetchController.h"
 
 @interface AppDelegate ()
 
@@ -14,4 +15,16 @@
 
 @implementation AppDelegate
 
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    return YES;
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    GWPBackgroundFetchController *controller = [GWPBackgroundFetchController initWithCompletionHandler:completionHandler];
+    [controller updateAllRSS];
+}
 @end

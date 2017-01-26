@@ -1,0 +1,6 @@
+
+@protocol GWPBackgroundAppDelegate <NSObject>
+
+-
+
+@end

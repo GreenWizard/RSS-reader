@@ -48,9 +48,11 @@
     if(!_self) return nil;
     
     [_self initCoreData];
+    [_self startPeriodicUpdate];
     
     return _self;
 }
+
 
 -(void)initCoreData
 {
@@ -96,8 +98,6 @@
                                                                                error:&error];
         NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
     });
-    
-    [self startPeriodicUpdate];
 }
 
 -(void)startPeriodicUpdate
@@ -151,7 +151,6 @@
 
 -(void)updateAllRSS
 {
-
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
         
     NSError *error = nil;
@@ -167,11 +166,10 @@
 {
     [self contextController:controller
                         saveParentContext:self.parentContext];
-    NSURL *link = [(GWPNewsRecieverController *)controller rss].link;
-    [self.recieverContextStorage removeObjectForKey:link];
-    NSLog(@"remaining recievers %lu", [self.recieverContextStorage count]);
-    if(![self.recieverContextStorage count])
-        NSLog(@"---------------------------");
+    @synchronized (nil) {
+        NSURL *link = [(GWPNewsRecieverController *)controller rss].link;
+        [self.recieverContextStorage removeObjectForKey:link];
+    }
 }
 
 -(GWPRSS *)fromDataToRSS:(GWPRSSData *)data

@@ -13,20 +13,31 @@
 #import "GWPNews.h"
 #import "GWPRSSData+CoreDataClass.h"
 #import "GWPNewsData+CoreDataClass.h"
+#import "GWPBackgroundFetchController.h"
 
 @interface GWPNewsRecieverController()
 
-@property (readonly) id<GWPRecieverControllerParent> parentController;
+@property (readwrite) id<GWPRecieverControllerParent> parentController;
+@property (weak, readwrite, nonatomic) GWPBackgroundFetchController *backgroundController;
 
 @end
 
 @implementation GWPNewsRecieverController
+@synthesize  parentController;
 
 -(void)updateRSS
 {
+    if([parentController isKindOfClass:[GWPBackgroundFetchController class]])
+        self.backgroundController = parentController;
+    else
+        self.backgroundController = nil;
+    
     GWPRSSParser *parser = [[GWPRSSParser alloc] init];
     parser.urlToParse = self.rss.link;
     NSMutableDictionary *results = [parser parse];
+    
+    if(!results.count)
+        self.backgroundController.updateFailedWhithError = YES;
     
     if(results)
     {
@@ -53,7 +64,9 @@
         
         for(GWPNewsData *data in oldNews)
             [self.context deleteObject:data];
-            
+        
+        if(results.count)
+            self.backgroundController.updateHaveResult = YES;
     
         for(NSURL *url in results)
             [self insertNews:[results objectForKey:url]];
